@@ -1,0 +1,16 @@
+---
+
+# 3.3.5 Ensure permissions on /etc/hosts.deny are configured
+
+- name: "3.3.5 -> Ensure permissions on /etc/hosts.deny are configured"
+  file:
+      dest: /etc/hosts.deny
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - hosts
+      - control_5.1
+      - rule_3.3.5

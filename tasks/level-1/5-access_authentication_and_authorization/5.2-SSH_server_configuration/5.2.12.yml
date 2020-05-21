@@ -1,0 +1,17 @@
+---
+
+# 5.2.12 Ensure SSH PermitUserEnvironment is disabled
+
+- name: "5.2.12 -> Ensure SSH PermitUserEnvironment is disabled"
+  template:
+      src: etc/ssh/sshd_config.j2
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - sshd
+      - rule_5.2.12

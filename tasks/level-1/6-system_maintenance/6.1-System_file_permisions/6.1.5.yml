@@ -1,0 +1,15 @@
+---
+
+# 6.1.5 Ensure permissions on /etc/group are configured
+
+- name: "6.1.5 -> Ensure permissions on /etc/group are configured"
+  file:
+      dest: /etc/group
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - control_16.4
+      - rule_6.1.5

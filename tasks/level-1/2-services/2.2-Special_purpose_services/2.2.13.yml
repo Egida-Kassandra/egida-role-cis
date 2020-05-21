@@ -1,0 +1,20 @@
+---
+
+# 2.2.13  Ensure HTTP Proxy Server is not enabled
+
+- name: 2.2.13 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/squid
+  register: service_status
+
+- name: "2.2.13 -> Ensure HTTP Proxy Server is not enabled"
+  systemd:
+    name: squid
+    enabled: no
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - proxy
+      - scored
+      - rule_2.2.13

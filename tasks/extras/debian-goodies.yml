@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install debian-goodies
+
+- name: "EXTRAS - Install debian-goodies"
+  apt:
+    name: debian-goodies
+    state: present
+  tags:
+      - extras
+      - debian-goodies

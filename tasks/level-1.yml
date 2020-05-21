@@ -1,0 +1,485 @@
+---
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 1. INITIAL SETUP ---------------------------------------------------------------------
+
+
+# ======================= 1.1 Filesystem configuration =================================
+
+# 1.1.1.1
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.1.yml"
+  when: "'1.1.1.1' not in cis_level_1_exclusions"
+
+# 1.1.1.2
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.2.yml"
+  when: "'1.1.1.2' not in cis_level_1_exclusions"
+
+# 1.1.1.3
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.3.yml"
+  when: "'1.1.1.3' not in cis_level_1_exclusions"
+
+# 1.1.1.4
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.4.yml"
+  when: "'1.1.1.4' not in cis_level_1_exclusions"
+
+# 1.1.1.5
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.5.yml"
+  when: "'1.1.1.5' not in cis_level_1_exclusions"
+
+# 1.1.1.6 (Added)
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.6.yml"
+  when: "'1.1.1.6' not in cis_level_1_exclusions"
+
+# 1.1.1.7
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.7.yml"
+  when: "'1.1.1.7' not in cis_level_1_exclusions"
+
+# 1.1.1.9 (Added)
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.1.8.yml"
+  when: "'1.1.1.8' not in cis_level_1_exclusions"
+
+# 1.1.3
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.3.yml"
+  when: "'1.1.3' not in cis_level_1_exclusions"
+
+# 1.1.4 (Only if 1.1.3 in exclusions)
+- include: "tasks/level-1/1-initial_setup/1.1-Filesystem_configuration/1.1.4.yml"
+  when: "'1.1.4' in cis_level_1_exclusions"
+
+# ======================= 1.2 Configure software updates =================================
+
+# 1.2.1
+- include: "tasks/level-1/1-initial_setup/1.2-Configure_software_updates/1.2.1.yml"
+  when: "'1.2.1' in cis_level_1_exclusions"
+
+# ======================= 1.4 Filesystem integrity checking ==============================
+- include: "tasks/level-1/1-initial_setup/1.4-Filesystem_integrity/1.4.1.yml"
+  when: "'1.4.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.4-Filesystem_integrity/1.4.2.yml"
+  when: "'1.4.2' not in cis_level_1_exclusions"
+
+# ======================= 1.5 Secure boot settings ======================================
+- include: "tasks/level-1/1-initial_setup/1.5-Secure_boot_settings/1.5.1.yml"
+  when: "'1.5.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.5-Secure_boot_settings/1.5.2.yml"
+  when: "'1.5.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.5-Secure_boot_settings/1.5.3.yml"
+  when: "'1.5.3' not in cis_level_1_exclusions"
+
+# ======================= 1.6 Additional Process Hardering ==============================
+- include: "tasks/level-1/1-initial_setup/1.6-Additional_process_hardering/1.6.1.yml"
+  when: "'1.6.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.6-Additional_process_hardering/1.6.2.yml"
+  when: "'1.6.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.6-Additional_process_hardering/1.6.3.yml"
+  when: "'1.6.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.6-Additional_process_hardering/1.6.4.yml"
+  when: "'1.6.4' not in cis_level_1_exclusions"
+
+# ======================= 1.7 Mandatory Access Control  ======================================
+- include: "tasks/level-1/1-initial_setup/1.7-Mandatory_access_control/1.7.1.1.yml"
+  when: "'1.7.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.7-Mandatory_access_control/1.7.1.2.yml"
+  when: "'1.7.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.7-Mandatory_access_control/1.7.1.3.yml"
+  when: "'1.7.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.7-Mandatory_access_control/1.7.1.4.yml"
+  when: "'1.7.1.4' not in cis_level_1_exclusions"
+
+# ======================= 1.8 Warning Banners  ======================================
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.1.yml"
+  when: "'1.8.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.2.yml"
+  when: "'1.8.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.3.yml"
+  when: "'1.8.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.4.yml"
+  when: "'1.8.1.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.5.yml"
+  when: "'1.8.1.5' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.1.6.yml"
+  when: "'1.8.1.6' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/1-initial_setup/1.8-Warning_banners/1.8.2.yml"
+  when: "'1.8.2' not in cis_level_1_exclusions"
+
+# ======================= 1.9 Updates  ======================================
+- include: "tasks/level-1/1-initial_setup/1.9-Updates/1.9.yml"
+  when: "'1.9' not in cis_level_1_exclusions"
+
+
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 2. SERVICES --------------------------------------------------------------------------
+
+# ======================= 2.1 inetd Services  ======================================
+- include: "tasks/level-1/2-services/2.1-Inetd_services/2.1.1.yml"
+  when: "'2.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.1-Inetd_services/2.1.2.yml"
+  when: "'2.1.2' not in cis_level_1_exclusions"
+
+# ======================= 2.2 Special Purpose Services  ======================================
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.1.1.yml"
+  when: "'2.2.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.1.2.yml"
+  when: "'2.2.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.1.3.yml"
+  when: "'2.2.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.2.yml"
+  when: "'2.2.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.3.yml"
+  when: "'2.2.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.4.yml"
+  when: "'2.2.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.5.yml"
+  when: "'2.2.5' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.6.yml"
+  when: "'2.2.6' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.7.yml"
+  when: "'2.2.7' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.8.yml"
+  when: "'2.2.8' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.9.yml"
+  when: "'2.2.9' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.10.yml"
+  when: "'2.2.10' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.11.yml"
+  when: "'2.2.11' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.12.yml"
+  when: "'2.2.12' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.13.yml"
+  when: "'2.2.13' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.14.yml"
+  when: "'2.2.14' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.15.yml"
+  when: "'2.2.15' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.16.yml"
+  when: "'2.2.16' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.2-Special_purpose_services/2.2.17.yml"
+  when: "'2.2.16' not in cis_level_1_exclusions"
+
+# ======================= 2.3 Service clients  ======================================
+- include: "tasks/level-1/2-services/2.3-Service_clients/2.3.1.yml"
+  when: "'2.3.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.3-Service_clients/2.3.2.yml"
+  when: "'2.3.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.3-Service_clients/2.3.3.yml"
+  when: "'2.3.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.3-Service_clients/2.3.4.yml"
+  when: "'2.3.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/2-services/2.3-Service_clients/2.3.5.yml"
+  when: "'2.3.5' not in cis_level_1_exclusions"
+
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 3. NETWORK CONFIGURATION -------------------------------------------------------------
+
+# ======================= 3.1 Network Parameters (Host only)  ======================================
+- include: "tasks/level-1/3-network_configuration/3.1-Network_parameters_host/3.1.1.yml"
+  when: "'3.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.1-Network_parameters_host/3.1.2.yml"
+  when: "'3.1.2' not in cis_level_1_exclusions"
+
+# ======================= 3.2 Network Parameters (Host and router)  ======================================
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.1.yml"
+  when: "'3.2.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.2.yml"
+  when: "'3.2.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.3.yml"
+  when: "'3.2.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.4.yml"
+  when: "'3.2.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.5.yml"
+  when: "'3.2.5' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.6.yml"
+  when: "'3.2.6' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.7.yml"
+  when: "'3.2.7' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.8.yml"
+  when: "'3.2.8' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.2-Network_parameters_host_and_router/3.2.9.yml"
+  when: "'3.2.9' not in cis_level_1_exclusions"
+
+# ======================= 3.3 TCP WRAPPERS  ======================================
+- include: "tasks/level-1/3-network_configuration/3.3-TCP_wrappers/3.3.1.yml"
+  when: "'3.3.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.3-TCP_wrappers/3.3.2.yml"
+  when: "'3.3.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.3-TCP_wrappers/3.3.3.yml"
+  when: "'3.3.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.3-TCP_wrappers/3.3.4.yml"
+  when: "'3.3.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.3-TCP_wrappers/3.3.5.yml"
+  when: "'3.3.5' not in cis_level_1_exclusions"
+
+# ======================= 3.4 Uncommon Network Protocols  =====================
+- include: "tasks/level-1/3-network_configuration/3.4-Uncommon_network_protocols/3.4.1.yml"
+  when: "'3.4.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.4-Uncommon_network_protocols/3.4.2.yml"
+  when: "'3.4.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.4-Uncommon_network_protocols/3.4.3.yml"
+  when: "'3.4.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.4-Uncommon_network_protocols/3.4.4.yml"
+  when: "'3.4.4' not in cis_level_1_exclusions"
+
+# ======================= 3.5 Firewall Configuration  ==============================
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.1.1.yml"
+  when: "'3.5.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.2.1.yml"
+  when: "'3.5.2.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.2.2.yml"
+  when: "'3.5.2.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.2.3.yml"
+  when: "'3.5.2.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.2.4.yml"
+  when: "'3.5.2.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/3-network_configuration/3.5-Firewall_configuration/3.5.2.5.yml"
+  when: "'3.5.2.5' not in cis_level_1_exclusions"
+
+# ======================= 3.7 IPv6  ==============================
+- include: "tasks/level-1/3-network_configuration/3.7-Disable_ipv6/3.7.yml"
+  when: "'3.7' not in cis_level_1_exclusions"
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 4. LOGGING AND AUDITING -------------------------------------------------------------
+
+# ======================= 4.2 Configure Logging  ==============================
+
+- include: "tasks/level-1/4-logging_and_auditing/4.2-Configure_logging/4.2.1.1.yml"
+  when: "'4.2.1.1' not in cis_level_1_exclusions"
+
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 5. Access, Authentication and Authorization ------------------------------------------
+
+# ======================= 5.1 Configure Cron  ==============================
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.1.yml"
+  when: "'5.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.2.yml"
+  when: "'5.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.3.yml"
+  when: "'5.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.4.yml"
+  when: "'5.1.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.5.yml"
+  when: "'5.1.5' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.6.yml"
+  when: "'5.1.6' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.7.yml"
+  when: "'5.1.7' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.1-Configure_cron/5.1.8.yml"
+  when: "'5.1.8' not in cis_level_1_exclusions"
+
+# ======================= 5.2 SSH Server Configuration  ==============================
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.1.yml"
+  when: "'5.2.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.2.yml"
+  when: "'5.2.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.3.yml"
+  when: "'5.2.3' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.4.yml"
+  when: "'5.2.4' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.5.yml"
+  when: "'5.2.5' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.6.yml"
+  when: "'5.2.6' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.7.yml"
+  when: "'5.2.7' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.8.yml"
+  when: "'5.2.8' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.9.yml"
+  when: "'5.2.9' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.10.yml"
+  when: "'5.2.10' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.11.yml"
+  when: "'5.2.11' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.12.yml"
+  when: "'5.2.12' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.13.yml"
+  when: "'5.2.13' not in cis_level_1_exclusions"
+  
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.14.yml"
+  when: "'5.2.14' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.15.yml"
+  when: "'5.2.15' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.16.yml"
+  when: "'5.2.16' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.17.yml"
+  when: "'5.2.17' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.18.yml"
+  when: "'5.2.18' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.19.yml"
+  when: "'5.2.19' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.20.yml"
+  when: "'5.2.20' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.22.yml"
+  when: "'5.2.22' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.23.yml"
+  when: "'5.2.23' not in cis_level_1_exclusions"
+
+# ======================= 5.3 Configure PAM  ==============================
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.3-Configure_pam/5.3.1.yml"
+  when: "'5.3.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.3-Configure_pam/5.3.2.yml"
+  when: "'5.3.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.3-Configure_pam/5.3.3.yml"
+  when: "'5.3.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.3-Configure_pam/5.3.4.yml"
+  when: "'5.3.4' not in cis_level_1_exclusions"
+
+
+# ======================= 5.4 Users Accounts and Environment ==============================
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.1.1.yml"
+  when: "'5.4.1.1' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.1.2.yml"
+  when: "'5.4.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.1.3.yml"
+  when: "'5.4.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.1.4.yml"
+  when: "'5.4.1.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.3.yml"
+  when: "'5.4.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.4.yml"
+  when: "'5.4.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/5-access_authentication_and_authorization/5.4-User_accounts_and_environment/5.4.5.yml"
+  when: "'5.4.5' not in cis_level_1_exclusions"
+
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 6. System Maintenance ------------------------------------------
+
+# ======================= 6.1 System File Permisions  ==============================
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.2.yml"
+  when: "'6.1.2' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.3.yml"
+  when: "'6.1.3' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.4.yml"
+  when: "'6.1.4' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.5.yml"
+  when: "'6.1.5' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.6.yml"
+  when: "'6.1.6' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.7.yml"
+  when: "'6.1.7' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.8.yml"
+  when: "'6.1.8' not in cis_level_1_exclusions"
+
+- include: "tasks/level-1/6-system_maintenance/6.1-System_file_permisions/6.1.9.yml"
+  when: "'6.1.9' not in cis_level_1_exclusions"

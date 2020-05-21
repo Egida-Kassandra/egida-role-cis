@@ -1,0 +1,19 @@
+---
+
+# 1.6.1 Ensure XD/NX support is enabled
+
+- name: "1.6.1 -> Ensure XD/NX support is enabled"
+  shell: |
+      set -o pipefail;
+      dmesg | grep -E "NX|XD" | grep " active"
+  args:
+      executable: /bin/bash
+  changed_when: false
+  tags:
+      - level1
+      - notscored
+      - xd
+      - nx
+      - rule_1.6.1
+      - control_8.3
+      - notimplemented

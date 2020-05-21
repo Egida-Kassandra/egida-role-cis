@@ -1,0 +1,20 @@
+---
+
+# 4.1.14 Ensure changes to system administration scope (sudoers) is collected
+
+- name: "4.1.14 -> Ensure changes to system administration scope (sudoers) is collected"
+  template:
+      src: etc/audit/audit.rules.j2
+      dest: /etc/audit/rules.d/audit.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify:
+      - load audit rules
+      - restart auditd
+  tags:
+      - level2
+      - scored
+      - control_4.8
+      - auditd
+      - rule_4.1.14

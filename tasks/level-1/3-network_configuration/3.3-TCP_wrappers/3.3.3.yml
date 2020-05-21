@@ -1,0 +1,15 @@
+---
+
+# 3.3.3 Ensure /etc/hosts.deny is configured
+
+- name: "3.3.3 -> Ensure /etc/hosts.deny is configured"
+  lineinfile:
+      dest: /etc/hosts.deny
+      regexp: "^(#)?ALL"
+      line: "ALL: ALL"
+  tags:
+      - level1
+      - scored
+      - hosts
+      - control_9.4
+      - rule_3.3.3

@@ -1,0 +1,54 @@
+---
+
+# 1.4.1 Ensure AIDE is installed
+
+- name: "1.4.1 -> Ensure AIDE is installed (install nullmailer instead of postfix) [1/4]"
+  apt:
+      name: nullmailer
+      state: present
+      install_recommends: false
+  when:
+      - not postfix_installed.rc == 0
+  tags:
+      - level1
+      - scored
+      - aide
+      - control_14.9
+      - rule_1.4.1
+
+- name: "1.4.1 -> Ensure AIDE is installed [2/4]"
+  apt:
+      name:
+        - aide
+        - aide-common
+      state: present
+      install_recommends: false
+  tags:
+      - level1
+      - scored
+      - aide
+      - control_14.9
+      - rule_1.4.1
+
+- name: "1.4.1 -> Ensure AIDE is installed (Stat AIDE DB) [3/4]"
+  stat: path=/var/lib/aide/aide.db
+  register: aide_db
+  tags:
+      - level1
+      - scored
+      - aide
+      - control_14.9
+      - rule_1.4.1
+
+- name: "1.4.1 -> Ensure AIDE is installed (Init AIDE) [4/4] | This may take a LONG time"
+  command: /usr/sbin/aideinit
+  args:
+      creates: /var/lib/aide/aide.db
+  when:
+      - not aide_db.stat.exists
+  tags:
+      - level1
+      - scored
+      - aide
+      - control_14.9
+      - rule_1.4.1

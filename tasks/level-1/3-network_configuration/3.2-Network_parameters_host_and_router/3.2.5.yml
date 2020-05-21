@@ -1,0 +1,20 @@
+---
+
+# 3.2.5 Ensure broadcast ICMP requests are ignored
+
+- name: "3.2.5 -> Ensure broadcast ICMP requests are ignored"
+  sysctl:
+      name: net.ipv4.icmp_echo_ignore_broadcasts
+      value: "1"
+      state: present
+      reload: true
+      ignoreerrors: true
+  notify:
+      - sysctl flush ipv4 route table
+  tags:
+      - level1
+      - scored
+      - icmp
+      - sysctl
+      - control_5.1
+      - rule_3.2.5

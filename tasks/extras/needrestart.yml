@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install needrestart
+
+- name: "EXTRAS - Install needrestart"
+  apt:
+    name: needrestart
+    state: present
+  tags:
+      - extras
+      - needrestart

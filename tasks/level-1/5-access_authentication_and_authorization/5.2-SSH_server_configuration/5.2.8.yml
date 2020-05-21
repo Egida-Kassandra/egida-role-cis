@@ -1,0 +1,17 @@
+---
+
+# 5.2.8  Ensure SSH IgnoreRhosts is enabled
+
+- name: "5.2.8 ->  Ensure SSH IgnoreRhosts is enabled"
+  template:
+      src: etc/ssh/sshd_config.j2
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_9.2
+      - sshd
+      - rule_5.2.8

@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Antonio Paya Gonzalez
+  description: Ubuntu 18.04 LTS CIS Benchmarks
+  company: Universidad de Oviedo
+
+
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - Ubuntu
+    - CIS
+    - hardering
+    - security
+    - Ubuntu18.04
+
+dependencies: []

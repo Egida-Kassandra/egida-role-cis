@@ -1,0 +1,14 @@
+---
+
+# 2.2.1.1  Ensure time synchronization is in use
+
+- name: "2.2.1.1 -> Ensure time synchronization is in use"
+  apt:
+    name: chrony
+    state: present
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - scored
+      - rule_2.2.1.1

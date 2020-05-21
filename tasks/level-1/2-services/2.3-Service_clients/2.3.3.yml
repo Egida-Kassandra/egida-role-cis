@@ -1,0 +1,14 @@
+---
+
+# 2.3.3 Ensure talk client is not installed
+
+- name: "2.3.3 -> Ensure talk client is not installed"
+  apt:
+    name: talk
+    state: absent
+  tags:
+      - level1
+      - control_2.6
+      - talk
+      - scored
+      - rule_2.3.3

@@ -1,0 +1,15 @@
+---
+
+# 4.2.1.1  Ensure rsyslog is installed
+
+- name: "4.2.1.1 ->  Ensure rsyslog is installed"
+  apt:
+      name: "rsyslog"
+      state: present
+  tags:
+      - level1
+      - scored
+      - control_6.2
+      - control_6.3
+      - rsyslog
+      - rule_4.2.1.1

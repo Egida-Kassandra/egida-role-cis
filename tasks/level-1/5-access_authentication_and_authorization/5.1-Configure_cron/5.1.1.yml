@@ -1,0 +1,14 @@
+---
+
+# 5.1.1  Ensure cron daemon is enabled
+
+- name: "5.1.1 ->  Ensure cron daemon is enabled"
+  service:
+      name: "cron"
+      enabled: true
+  tags:
+      - level1
+      - scored
+      - control_6
+      - cron
+      - rule_5.1.1

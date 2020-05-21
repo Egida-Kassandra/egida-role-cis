@@ -1,0 +1,25 @@
+---
+
+# 1.7.1.2  Ensure AppArmor is enabled in the bootloader configuration
+
+- name: "1.7.1.2 ->  Ensure AppArmor is enabled in the bootloader configuration (1/2)"
+  lineinfile:
+      dest: /etc/default/grub
+      regexp: "^GRUB_CMDLINE_LINUX"
+      line: 'GRUB_CMDLINE_LINUX="apparmor=1 security=apparmor"'
+      state: present
+  tags:
+      - level1
+      - scored
+      - apparmor
+      - control_14.6
+      - rule_1.7.1.2
+
+- name: "1.7.1.2 ->  Ensure AppArmor is enabled in the bootloader configuration (2/2)"
+  command: update-grub
+  tags:
+      - level1
+      - scored
+      - apparmor
+      - control_14.6
+      - rule_1.7.1.2

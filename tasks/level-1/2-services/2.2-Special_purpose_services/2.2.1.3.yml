@@ -1,0 +1,16 @@
+---
+
+# 2.2.1.3  Ensure chrony is configured
+
+- name: "2.2.1.3 -> Ensure chrony is configured"
+  lineinfile:
+      dest: "/etc/chrony.conf"
+      line: 'server <remote-server>'
+      state: present
+      create: yes
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - scored
+      - rule_2.2.1.3

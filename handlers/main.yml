@@ -1,0 +1,71 @@
+---
+# handlers file for Ubuntu-18.04-CIS-Hardering
+
+# 1.1.2
+- name: systemd restart tmp.mount
+  become: true
+  systemd:
+      name: tmp.mount
+      daemon_reload: true
+      enabled: true
+      masked: false
+      state: reloaded
+  ignore_errors: true
+
+
+# 2.1.1
+- name: restart xinetd
+  become: true
+  service:
+      name: xinetd
+      state: restarted
+
+# 3.1.1
+- name: sysctl flush ipv4 route table
+  become: true
+  sysctl:
+      name: net.ipv4.route.flush
+      value: "1"
+      sysctl_set: true
+
+- name: sysctl flush ipv6 route table
+  become: true
+  sysctl:
+      name: net.ipv6.route.flush
+      value: "1"
+      sysctl_set: true
+
+# 4.1
+- name: restart auditd
+  become: true
+  service:
+      name: auditd
+      state: restarted
+
+- name: load audit rules
+  become: true
+  command: /sbin/augenrules --load
+
+- name: update grub
+  command: update-grub
+
+# 4.1.3
+- name: generate new grub config
+  become: true
+  command: grub-mkconfig -o "{{ grub_cfg.stat.path }}"
+  notify: fix permissions after generate new grub config handler
+
+- name: fix permissions after generate new grub config handler
+  become: true
+  file:
+    path: "/boot/grub/grub.cfg"
+    owner: root
+    group: root
+    mode: 0600
+
+# 5.2
+- name: restart sshd
+  become: true
+  service:
+      name: sshd
+      state: restarted

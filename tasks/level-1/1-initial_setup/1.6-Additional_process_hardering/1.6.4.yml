@@ -1,0 +1,34 @@
+---
+
+# 1.6.4 Ensure core dumps are restricted
+
+- name: "1.6.4 -> Ensure core dumps are restricted [1/2]"
+  lineinfile:
+      state: present
+      dest: /etc/security/limits.conf
+      regexp: '^#?\\*.*core'
+      line: '* hard core 0'
+      insertbefore: '^# End of file'
+  tags:
+      - level1
+      - scored
+      - limits
+      - core_dumps
+      - control_8.3
+      - rule_1.6.4
+
+- name: "1.6.4 -> Ensure core dumps are restricted [2/2]"
+  sysctl:
+      name: fs.suid_dumpable
+      value: "0"
+      state: present
+      reload: true
+      sysctl_set: true
+      ignoreerrors: true
+  tags:
+      - level1
+      - scored
+      - limits
+      - core_dumps
+      - control_8.3
+      - rule_1.6.4

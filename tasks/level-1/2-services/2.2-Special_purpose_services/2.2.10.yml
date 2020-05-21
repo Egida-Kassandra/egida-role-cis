@@ -1,0 +1,20 @@
+---
+
+# 2.2.10  Ensure HTTP server is not enabled
+
+- name: 2.2.10 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/apache2
+  register: service_status
+
+- name: "2.2.10 -> Ensure HTTP server is not enabled"
+  systemd:
+    name: apache2
+    enabled: no
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - http
+      - scored
+      - rule_2.2.10

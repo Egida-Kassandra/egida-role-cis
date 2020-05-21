@@ -1,0 +1,32 @@
+---
+
+# EXTRAS - Properly functioning name servers
+
+- name: "EXTRAS - Properly functioning name servers (1/3)"
+  apt:
+    name: resolvconf
+    state: present
+  tags:
+      - extras
+      - nameservers
+      - resolvconf
+
+- name: "EXTRAS - Properly functioning name servers (2/3)"
+  lineinfile:
+      dest: /etc/resolvconf/resolv.conf.d/head
+      line: 'nameserver {{ item }}'
+      create: true
+  with_items: "{{ nameservers }}"
+  tags:
+      - extras
+      - nameservers
+      - resolvconf
+
+- name: "EXTRAS - Properly functioning name servers (3/3)"
+  service:
+    name: resolvconf
+    state: restarted
+  tags:
+      - extras
+      - nameservers
+      - resolvconf

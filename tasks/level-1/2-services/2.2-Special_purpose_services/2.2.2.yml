@@ -1,0 +1,14 @@
+---
+
+# 2.2.2  Ensure X Window System is not installed
+
+- name: "2.2.2 -> Ensure X Window System is not installed"
+  apt:
+    name: xserver-xorg*
+    state: absent
+  tags:
+      - level1
+      - control_2.6
+      - xserver-xorg
+      - scored
+      - rule_2.2.2

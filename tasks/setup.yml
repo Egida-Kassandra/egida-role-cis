@@ -1,0 +1,123 @@
+---
+# SETUP TASKS
+
+# Install pexpect
+- name: "SETUP | Install pexpect"
+  apt:
+    name: python-pexpect
+    state: present
+
+
+# Register postfix_installed
+- name: "SETUP | Check if postfix package is installed"
+  command: "dpkg -V postfix"
+  register: postfix_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+  tags:
+    - skip_ansible_lint
+
+# Check if prelink is installed
+- name: "SETUP | Check if prelink package is installed"
+  command: "dpkg -V prelink"
+  register: prelink_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+  tags:
+    - skip_ansible_lint
+
+# Copy auditd.conf file
+
+- name: "SETUP | MKDIR /etc/audit"
+  file:
+    path: /etc/audit
+    state: directory
+  when:
+      - default_auditd
+
+- name: "SETUP | Copy auditd.conf"
+  template:
+      src: etc/audit/auditd.conf.j2
+      dest: /etc/audit/auditd.conf
+  when:
+      - default_auditd
+
+
+# 2.1.6 services
+
+- name: "SETUP | Check for rsh.socket service"
+  shell: "set -o pipefail;
+      systemctl show rsh.socket | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: rsh_service_status
+  changed_when: false
+  check_mode: false
+
+- name: "SETUP | Check for rlogin.socket service"
+  shell: "set -o pipefail;
+      systemctl show rlogin.socket | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: rlogin_service_status
+  changed_when: false
+  check_mode: false
+
+- name: "SETUP | Check for rexec.socket service"
+  shell: "set -o pipefail;
+      systemctl show rexec.socket | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: rexec_service_status
+  changed_when: false
+  check_mode: false
+
+
+# 2.1.7
+
+- name: "SETUP | Check for ntalk service"
+  shell: "set -o pipefail;
+      systemctl show ntalk | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: ntalk_service_status
+  changed_when: false
+  check_mode: false
+
+# 2.1.8
+- name: "SETUP | Check for telnet service"
+  shell: "set -o pipefail;
+      systemctl show telnet | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: telnet_service_status
+  changed_when: false
+  check_mode: false
+
+# 2.1.9
+- name: "SETUP | Check for tftp service"
+  shell: "set -o pipefail;
+      systemctl show tftp | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: tftp_service_status
+  changed_when: false
+  check_mode: false
+
+# 2.1.10
+- name: "SETUP | Check for xinetd service"
+  shell: "set -o pipefail;
+      systemctl show xinetd | grep LoadState | cut -d = -f 2"
+  args:
+      executable: /bin/bash
+  register: xinetd_service_status
+  changed_when: false
+  check_mode: false
+
+# 4.1 Install auditd
+- name: "SETUP | Install auditd"
+  apt:
+    name: auditd
+    state: present

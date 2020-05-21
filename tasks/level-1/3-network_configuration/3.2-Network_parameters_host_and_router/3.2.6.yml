@@ -1,0 +1,20 @@
+---
+
+# 3.2.6 Ensure bogus ICMP responses are ignored
+
+- name: "3.2.6 -> Ensure bogus ICMP responses are ignored"
+  sysctl:
+      name: net.ipv4.icmp_ignore_bogus_error_responses
+      value: "1"
+      state: present
+      reload: true
+      ignoreerrors: true
+  notify:
+      - sysctl flush ipv4 route table
+  tags:
+      - level1
+      - scored
+      - icmp
+      - sysctl
+      - control_5.1
+      - rule_3.2.6

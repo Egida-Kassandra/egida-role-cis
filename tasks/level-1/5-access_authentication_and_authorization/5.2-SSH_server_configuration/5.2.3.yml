@@ -1,0 +1,21 @@
+---
+
+# 5.2.3  Ensure permissions on SSH public host key files are configured
+
+- name: "5.2.3 -> Ensure permissions on SSH public host key files are configured (1/2)"
+  command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chmod 0644 {} \;
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - sshd
+      - rule_5.2.3
+
+- name: "5.2.3 -> Ensure permissions on SSH public host key files are configured (2/2)"
+  command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - sshd
+      - rule_5.2.3

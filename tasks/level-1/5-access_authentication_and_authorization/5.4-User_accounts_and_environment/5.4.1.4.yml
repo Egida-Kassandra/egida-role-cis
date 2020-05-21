@@ -1,0 +1,11 @@
+---
+
+# 5.4.1.4 Ensure inactive password lock is 30 days or less
+
+- name: "5.4.1.4 -> Ensure inactive password lock is 30 days or less"
+  command: useradd -D -f 30
+  tags:
+      - level1
+      - scored
+      - control_4.4
+      - rule_5.4.1.4

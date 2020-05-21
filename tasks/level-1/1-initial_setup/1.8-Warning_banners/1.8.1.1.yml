@@ -1,0 +1,14 @@
+---
+
+# 1.8.1.1 Ensure message of the day is configured properly
+
+- name: "1.8.1.1 -> Ensure message of the day is configured properly"
+  template:
+      src: etc/motd.j2
+      dest: /etc/motd
+  tags:
+      - level1
+      - scored
+      - banner
+      - control_5.1
+      - rule_1.8.1.1

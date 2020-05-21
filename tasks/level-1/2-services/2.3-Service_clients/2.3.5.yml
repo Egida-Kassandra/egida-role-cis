@@ -1,0 +1,14 @@
+---
+
+# 2.3.5 Ensure LDAP client is not installed
+
+- name: "2.3.5 -> Ensure LDAP client is not installed"
+  apt:
+    name: ldap-utils
+    state: absent
+  tags:
+      - level1
+      - control_2.6
+      - ldap-utils
+      - scored
+      - rule_2.3.5

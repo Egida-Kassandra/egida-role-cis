@@ -1,0 +1,25 @@
+---
+
+# 3.7  Disable IPv6
+
+- name: "3.7 ->  Disable IPv6 (1/2)"
+  lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX'
+    line: 'GRUB_CMDLINE_LINUX="ipv6.disable=1"'
+    state: present
+  tags:
+      - level1
+      - notscored
+      - ipv6
+      - control_9.4
+      - rule_3.6
+
+- name: "3.7 ->  Disable IPv6 (2/2)"
+  command: update-grub
+  tags:
+      - level1
+      - notscored
+      - ipv6
+      - control_9.4
+      - rule_3.6

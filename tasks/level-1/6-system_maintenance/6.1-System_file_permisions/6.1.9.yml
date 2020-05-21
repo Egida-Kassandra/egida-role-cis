@@ -1,0 +1,15 @@
+---
+
+# 6.1.9 Ensure permissions on /etc/gshadow are configured
+
+- name: "6.1.9 -> Ensure permissions on /etc/gshadow are configured"
+  file:
+      dest: /etc/gshadow
+      owner: root
+      group: shadow
+      mode: 0640
+  tags:
+      - level1
+      - scored
+      - control_16.4
+      - rule_6.1.9

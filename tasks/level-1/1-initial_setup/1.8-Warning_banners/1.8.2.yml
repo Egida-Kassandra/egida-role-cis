@@ -1,0 +1,20 @@
+---
+
+# 1.8.2 Ensure GDM login banner is configured
+
+- name: "1.8.2 -> Ensure GDM login banner is configured"
+  lineinfile:
+      dest: "/etc/gdm3/greeter.dconf-defaults"
+      regexp: "banner-message-enable"
+      line: "banner-message-enable=true"
+      state: present
+      create: true
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - banner
+      - control_5.1
+      - rule_1.8.2

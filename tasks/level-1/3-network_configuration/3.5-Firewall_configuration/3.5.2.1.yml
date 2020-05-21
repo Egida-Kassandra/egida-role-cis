@@ -1,0 +1,22 @@
+---
+
+# 3.5.2.1  Ensure ufw service is enabled
+
+- name: "3.5.2.1 ->  Ensure ufw service is enabled"
+  command: ufw --force enable
+  tags:
+      - level1
+      - scored
+      - firewall
+      - control_9.4
+      - rule_3.5.2.1
+
+- name: "3.5.2.1 ->  Ensure ufw service is enabled (allow default ports)"
+  command:  ufw allow proto tcp from any to any port "{{ item }}"
+  with_items: "{{ ufw_ports_allow }}"
+  tags:
+      - level1
+      - scored
+      - firewall
+      - control_9.4
+      - rule_3.5.2.1

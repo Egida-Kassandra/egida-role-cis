@@ -1,0 +1,14 @@
+---
+
+# 2.1.2  Ensure openbsd-inetd is not installed
+
+- name: "2.1.2 -> Ensure openbsd-inetd is not installed"
+  apt:
+    name: openbsd-inetd
+    state: absent
+  tags:
+      - level1
+      - control_9.2
+      - openbsd-inetd
+      - scored
+      - rule_2.1.2

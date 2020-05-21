@@ -1,0 +1,17 @@
+---
+
+# 5.2.7  Ensure SSH MaxAuthTries is set to 4 or less
+
+- name: "5.2.7 ->  Ensure SSH MaxAuthTries is set to 4 or less"
+  template:
+      src: etc/ssh/sshd_config.j2
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_16.13
+      - sshd
+      - rule_5.2.7

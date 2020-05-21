@@ -1,0 +1,17 @@
+---
+
+# 5.1.5  Ensure permissions on /etc/cron.weekly are configured
+
+- name: "5.1.5 ->  Ensure permissions on /etc/cron.weekly are configured"
+  file:
+      dest: /etc/cron.weekly
+      state: directory
+      owner: root
+      group: root
+      mode: 0700
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - cron
+      - rule_5.1.5

@@ -1,0 +1,14 @@
+---
+
+# 2.3.1  Ensure NIS Client is not installed
+
+- name: "2.3.1 -> Ensure NIS Client is not installed"
+  apt:
+    name: nis
+    state: absent
+  tags:
+      - level1
+      - control_2.6
+      - nis
+      - scored
+      - rule_2.3.1

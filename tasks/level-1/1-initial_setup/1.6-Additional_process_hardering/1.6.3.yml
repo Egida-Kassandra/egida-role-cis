@@ -1,0 +1,23 @@
+---
+
+# 1.6.3 Ensure prelink is disabled
+
+- name: "1.6.3 -> Ensure prelink is disabled [1/2]"
+  command: prelink -ua
+  when:
+      - prelink_installed.rc == 0
+  tags:
+      - level1
+      - scored
+      - prelink
+      - rule_1.6.3
+
+- name: "1.6.3 -> Ensure prelink is disabled [2/2]"
+  apt:
+      name: prelink
+      state: absent
+  tags:
+      - level1
+      - scored
+      - prelink
+      - rule_1.6.3

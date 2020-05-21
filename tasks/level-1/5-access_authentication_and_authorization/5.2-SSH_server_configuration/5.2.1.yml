@@ -1,0 +1,17 @@
+---
+
+# 5.2.1  Ensure permissions on /etc/ssh/sshd_config are configured
+
+- name: "5.2.1 ->  Ensure permissions on /etc/ssh/sshd_config are configured"
+  file:
+      dest: /etc/ssh/sshd_config
+      state: file
+      owner: root
+      group: root
+      mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - sshd
+      - rule_5.2.1

@@ -1,0 +1,18 @@
+---
+
+# 1.1.3 Ensure nodev option set on /tmp partition
+
+- name: "1.1.3 -> Ensure nodev option set on /tmp partition"
+  ini_file:
+      path: "/usr/share/systemd/tmp.mount"
+      section: Mount
+      option: Options
+      value: "mode=1777,strictatime,nodev,nosuid"
+      no_extra_spaces: true
+  notify:
+      - systemd restart tmp.mount
+  tags:
+      - level1
+      - scored
+      - control_5.1
+      - rule_1.1.3

@@ -1,0 +1,76 @@
+Port {{ sshd_access['ssh_port'] }}
+{% if '5.2.4' not in cis_level_1_exclusions -%}
+Protocol 2
+{% endif %}
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_dsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+SyslogFacility AUTH
+Compression no
+StrictModes yes
+PubkeyAuthentication yes
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+AllowAgentForwarding no
+X11DisplayOffset 10
+PrintMotd no
+PrintLastLog yes
+TCPKeepAlive no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server
+UseDNS no
+{% if '5.2.5' not in cis_level_1_exclusions -%}
+LogLevel VERBOSE
+{% endif %}
+{% if '5.2.6' not in cis_level_1_exclusions -%}
+X11Forwarding no
+{% endif %}
+{% if '5.2.7' not in cis_level_1_exclusions -%}
+MaxAuthTries 2
+{% endif %}
+{% if '5.2.8' not in cis_level_1_exclusions -%}
+IgnoreRhosts yes
+{% endif %}
+{% if '5.2.9' not in cis_level_1_exclusions -%}
+HostbasedAuthentication no
+{% endif %}
+{% if '5.2.10' not in cis_level_1_exclusions -%}
+PermitRootLogin no
+{% endif %}
+{% if '5.2.11' not in cis_level_1_exclusions -%}
+PermitEmptyPasswords no
+{% endif %}
+{% if '5.2.12' not in cis_level_1_exclusions -%}
+PermitUserEnvironment no
+{% endif %}
+{% if '5.2.13' not in cis_level_1_exclusions -%}
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+{% endif %}
+{% if '5.2.14' not in cis_level_1_exclusions -%}
+macs umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512
+{% endif %}
+{% if '5.2.15' not in cis_level_1_exclusions -%}
+KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256
+{% endif %}
+{% if '5.2.16' not in cis_level_1_exclusions -%}
+ClientAliveInterval 300
+ClientAliveCountMax 0
+{% endif %}
+{% if '5.2.17' not in cis_level_1_exclusions -%}
+LoginGraceTime 30
+{% endif %}
+{% if '5.2.19' not in cis_level_1_exclusions -%}
+Banner /etc/issue.net
+{% endif %}
+{% if '5.2.20' not in cis_level_1_exclusions -%}
+UsePAM yes
+{% endif %}
+{% if '5.2.21' not in cis_level_2_exclusions -%}
+AllowTcpForwarding no
+{% endif %}
+{% if '5.2.22' not in cis_level_1_exclusions -%}
+maxstartups 10:30:60
+{% endif %}
+{% if '5.2.23' not in cis_level_1_exclusions -%}
+MaxSessions 4
+{% endif %}

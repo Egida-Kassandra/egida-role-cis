@@ -1,0 +1,16 @@
+---
+
+# 3.4.3 Ensure RDS is disabled
+
+- name: "3.4.3 -> Ensure RDS is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install rds(\\s|$)"
+      line: "install rds /bin/true"
+      create: true
+  tags:
+      - level1
+      - scored
+      - rds
+      - control_9.2
+      - rule_3.4.3

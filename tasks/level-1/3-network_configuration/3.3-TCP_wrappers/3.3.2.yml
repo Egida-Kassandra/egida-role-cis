@@ -1,0 +1,17 @@
+---
+
+# 3.3.2 Ensure /etc/hosts.allow is configured
+
+- name: "3.3.2 -> Ensure /etc/hosts.allow is configured"
+  template:
+      src: hosts.allow.j2
+      dest: /etc/hosts.allow
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - hosts
+      - control_9.4
+      - rule_3.3.2

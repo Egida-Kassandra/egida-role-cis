@@ -1,0 +1,16 @@
+---
+
+# 5.1.2  Ensure permissions on /etc/crontab are configured
+
+- name: "5.1.2 ->  Ensure permissions on /etc/crontab are configured"
+  file:
+      dest: /etc/crontab
+      owner: root
+      group: root
+      mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - cron
+      - rule_5.1.2

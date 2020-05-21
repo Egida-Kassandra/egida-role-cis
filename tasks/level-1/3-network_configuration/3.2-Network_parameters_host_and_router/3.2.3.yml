@@ -1,0 +1,24 @@
+---
+
+# 3.2.3 Ensure secure ICMP redirects are not accepted
+
+- name: "3.2.3 -> Ensure secure ICMP redirects are not accepted"
+  sysctl:
+      name: '{{ item.name }}'
+      value: '{{ item.value }}'
+      sysctl_set: true
+      state: present
+      reload: true
+      ignoreerrors: true
+  with_items:
+      - { name: net.ipv4.conf.all.secure_redirects, value: 0 }
+      - { name: net.ipv4.conf.default.secure_redirects, value: 0 }
+  notify:
+      - sysctl flush ipv4 route table
+  tags:
+      - level1
+      - scored
+      - icmp
+      - sysctl
+      - control_5.1
+      - rule_3.2.3

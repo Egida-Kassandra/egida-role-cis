@@ -1,0 +1,17 @@
+---
+
+# 1.7.1.1  Ensure AppArmor is installed
+
+- name: "1.7.1.1 ->  Ensure AppArmor is installed"
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apparmor
+    - apparmor-utils
+  tags:
+      - level1
+      - scored
+      - apparmor
+      - control_14.6
+      - rule_1.7.1.1

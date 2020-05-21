@@ -1,0 +1,18 @@
+---
+
+# 4.1.1.1  Ensure auditd is installed
+
+- name: "4.1.1.1 ->  Ensure auditd is installed"
+  apt: 
+    name: '{{ item }}'
+    state: present
+  with_items:
+      - auditd
+      - audispd-plugins
+  tags:
+      - level2
+      - scored
+      - control_6.2
+      - control_6.3
+      - auditd
+      - rule_4.1.1.1

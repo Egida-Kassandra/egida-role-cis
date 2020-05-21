@@ -1,0 +1,28 @@
+---
+
+# 2.2.7  Ensure NFS and RPC are not enabled
+
+- name: 2.2.7 -> Check if Service Exists (1/2)
+  stat: 
+    path: /etc/init.d/nfs-server
+  register: service_status
+
+- name: 2.2.7 -> Check if Service Exists (2/2)
+  stat: 
+    path: /etc/init.d/rpcbind
+  register: service_status2
+
+- name: "2.2.7 -> Ensure NFS and RPC are not enabled"
+  systemd:
+    name: '{{ item }}'
+    enabled: no
+  with_items:
+      - 'nfs-server'
+      - 'rpcbind'
+  when: service_status.stat.exists and service_status2.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - rpc
+      - scored
+      - rule_2.2.7

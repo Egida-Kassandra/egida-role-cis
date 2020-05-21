@@ -1,0 +1,16 @@
+---
+
+# 1.5.1 - Ensure permissions on bootloader config are configured
+
+- name: "1.5.1 -> Ensure permissions on bootloader config are configured"
+  file:
+      path: "/boot/grub/grub.cfg"
+      owner: root
+      group: root
+      mode: 0400
+  tags:
+      - level1
+      - scored
+      - bootloader
+      - control_5.1
+      - rule_1.5.1

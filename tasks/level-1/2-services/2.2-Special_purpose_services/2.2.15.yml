@@ -1,0 +1,32 @@
+---
+
+# 2.2.15  Ensure mail transfer agent is configured for local-only mode 
+
+- name: "2.2.15 -> Ensure mail transfer agent is configured for local-only mode "
+  lineinfile:
+      dest: "/etc/postfix/main.cf"
+      line: 'inet_interfaces = loopback-only'
+      regexp: '^(#)?inet_interfaces ='
+      state: present
+      create: yes
+  tags:
+      - level1
+      - control_9.2
+      - email
+      - scored
+      - rule_2.2.15
+
+- name: 2.2.15 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/postfix
+  register: service_status
+
+- name: "2.2.15 -> Ensure mail transfer agent is configured for local-only mode "
+  command: systemctl restart postfix
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - email
+      - scored
+      - rule_2.2.15

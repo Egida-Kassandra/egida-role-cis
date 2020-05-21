@@ -1,0 +1,31 @@
+---
+
+# EXTRAS - Install and configure fail2ban
+
+- name: "EXTRAS - Install fail2ban (1/3)"
+  apt:
+    name: fail2ban
+    state: present
+  tags:
+      - extras
+      - fail2ban
+
+- name: "EXTRAS - Install fail2ban (2/3)"
+  command: systemctl start fail2ban
+  tags:
+      - extras
+      - fail2ban
+
+- name: "EXTRAS - Install fail2ban (3/3)"
+  command: systemctl enable fail2ban
+  tags:
+      - extras
+      - fail2ban
+
+- name: "EXTRAS - Configure fail2ban jail"
+  template:
+      src: etc/fail2ban/jail.local.j2
+      dest: /etc/fail2ban/jail.local
+  tags:
+      - extras
+      - fail2ban

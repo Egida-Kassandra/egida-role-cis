@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install debsums
+
+- name: "EXTRAS - Install debsums"
+  apt:
+    name: debsums
+    state: present
+  tags:
+      - extras
+      - debsums

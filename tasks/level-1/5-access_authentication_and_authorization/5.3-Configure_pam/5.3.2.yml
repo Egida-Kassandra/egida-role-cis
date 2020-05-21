@@ -1,0 +1,13 @@
+---
+
+# 5.3.2  Ensure lockout for failed password attempts is configured
+
+- name: "5.3.2 ->  Ensure lockout for failed password attempts is configured"
+  lineinfile:
+      dest: /etc/pam.d/common-auth
+      line: 'auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900'
+  tags:
+      - level1
+      - scored
+      - control_16.7
+      - rule_5.3.2

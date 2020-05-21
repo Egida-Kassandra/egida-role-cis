@@ -1,0 +1,14 @@
+---
+
+# 1.5.3  Ensure authentication required for single user mode
+
+- name: "1.5.3 ->  Ensure authentication required for single user mode"
+  user: 
+    name: root
+    password: "{{ root_pass | password_hash('sha512') }}"
+  tags:
+      - level1
+      - scored
+      - authentication
+      - control_5.1
+      - rule_1.5.3

@@ -1,0 +1,13 @@
+---
+
+# 5.3.3  Ensure password reuse is limited
+
+- name: "5.3.3 -> Ensure password reuse is limited"
+  lineinfile:
+      dest: /etc/pam.d/common-password
+      line: 'password required pam_pwhistory.so remember=5'
+  tags:
+      - level1
+      - scored
+      - control_16
+      - rule_5.3.3

@@ -1,0 +1,65 @@
+---
+
+# _____________________________________________________________________________________________________________________________
+
+
+# -------------------------------------- 4. LOGGING AND AUDITING -------------------------------------------------------------
+
+# ======================= 4.1 Configure System Accounting (auditd)  ==============================
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.1.1.yml"
+  when: "'4.1.1.1' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.1.2.yml"
+  when: "'4.1.1.2' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.1.3.yml"
+  when: "'4.1.1.3' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.3.yml"
+  when: "'4.1.3' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.4.yml"
+  when: "'4.1.4' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.5.yml"
+  when: "'4.1.5' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.6.yml"
+  when: "'4.1.6' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.7.yml"
+  when: "'4.1.7' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.8.yml"
+  when: "'4.1.8' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.9.yml"
+  when: "'4.1.9' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.10.yml"
+  when: "'4.1.10' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.12.yml"
+  when: "'4.1.12' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.13.yml"
+  when: "'4.1.13' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.14.yml"
+  when: "'4.1.14' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.15.yml"
+  when: "'4.1.15' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.16.yml"
+  when: "'4.1.16' not in cis_level_2_exclusions"
+
+- include: "tasks/level-2/4-logging_and_auditing/4.1-Configure_system_accounting/4.1.17.yml"
+  when: "'4.1.17' not in cis_level_2_exclusions"
+
+# _____________________________________________________________________________________________________________________________
+
+# -------------------------------------- 5. Access, Authentication and Authorization ------------------------------------------
+# ======================= 5.2 SSH Server Configuration  ==============================
+- include: "tasks/level-2/5-access_authentication_and_authorization/5.2-SSH_server_configuration/5.2.21.yml"
+  when: "'5.2.21' not in cis_level_2_exclusions"

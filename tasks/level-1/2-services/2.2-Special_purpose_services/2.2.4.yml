@@ -1,0 +1,20 @@
+---
+
+# 2.2.4  Ensure CUPS is not enabled
+
+- name: 2.2.4 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/cups
+  register: service_status
+
+- name: "2.2.4 -> Ensure CUPS is not enabled"
+  systemd:
+    name: cups
+    enabled: no
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - cups
+      - scored
+      - rule_2.2.4

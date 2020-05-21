@@ -1,0 +1,22 @@
+---
+
+# 1.4.2 Ensure filesystem integrity is regularly checked
+
+- name: "1.4.2 -> Ensure filesystem integrity is regularly checked"
+  cron:
+      name: Run AIDE integrity check weekly
+      cron_file: "{{ aide_cron['cron_file'] }}"
+      user: "{{ aide_cron['cron_user'] }}"
+      minute: "{{ aide_cron['aide_minute'] | default('0') }}"
+      hour: "{{ aide_cron['aide_hour'] | default('5') }}"
+      day: "{{ aide_cron['aide_day'] | default('*') }}"
+      month: "{{ aide_cron['aide_month'] | default('*') }}"
+      weekday: "{{ aide_cron['aide_weekday'] | default('*') }}"
+      job: "{{ aide_cron['aide_job'] }}"
+  tags:
+      - level1
+      - scored
+      - aide
+      - file_integrity
+      - control_14.9
+      - rule_1.4.2

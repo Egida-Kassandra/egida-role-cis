@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install apt-listchanges
+
+- name: "EXTRAS - Install apt-listchanges"
+  apt:
+    name: apt-listchanges
+    state: present
+  tags:
+      - extras
+      - apt-listchanges

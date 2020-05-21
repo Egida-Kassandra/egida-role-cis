@@ -1,0 +1,27 @@
+---
+
+# 3.2.1 Ensure source routed packets are not accepted
+
+- name: "3.2.1 -> Ensure source routed packets are not accepted"
+  sysctl:
+      name: '{{ item.name }}'
+      value: '{{ item.value }}'
+      sysctl_set: true
+      state: present
+      reload: true
+      ignoreerrors: true
+  with_items:
+      - { name: net.ipv4.conf.all.accept_source_route, value: 0 }
+      - { name: net.ipv4.conf.default.accept_source_route, value: 0 }
+      - { name: net.ipv6.conf.all.accept_source_route, value: 0 }
+      - { name: net.ipv6.conf.default.accept_source_route, value: 0 }
+  notify:
+      - sysctl flush ipv4 route table
+      - sysctl flush ipv6 route table
+  tags:
+      - level1
+      - scored
+      - packet_redirect
+      - sysctl
+      - control_5.1
+      - rule_3.2.1

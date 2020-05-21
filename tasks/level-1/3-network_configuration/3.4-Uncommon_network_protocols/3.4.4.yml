@@ -1,0 +1,16 @@
+---
+
+# 3.4.4 Ensure TIPC is disabled
+
+- name: "3.4.4 -> Ensure TIPC is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install tipc(\\s|$)"
+      line: "install tipc /bin/true"
+      create: true
+  tags:
+      - level1
+      - scored
+      - tipc
+      - control_9.2
+      - rule_3.4.4

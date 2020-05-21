@@ -1,0 +1,56 @@
+---
+
+# 5.2.18 Ensure SSH access is limited
+
+- name: "5.2.18 -> Ensure SSH access is limited"
+  block:
+      - name: "5.2.18 -> Ensure SSH access is limited (allowusers) [1/4]"
+        lineinfile:
+            state: present
+            dest: /etc/ssh/sshd_config
+            regexp: '^AllowUsers'
+            line: "AllowUsers {{ sshd_access['allowusers'] }}"
+        notify:
+            - restart sshd
+        when:
+            - "sshd_access['allowusers']|default('')"
+
+      - name: "5.2.18 -> Ensure SSH access is limited (allowgroups) [2/4]"
+        lineinfile:
+            state: present
+            dest: /etc/ssh/sshd_config
+            regexp: '^AllowGroups'
+            line: "AllowGroups {{ sshd_access['allowgroups'] }}"
+        notify:
+            - restart sshd
+        when:
+            - "sshd_access['allowgroups']|default('')"
+
+      - name: "5.2.18 -> Ensure SSH access is limited (denyusers) [3/4]"
+        lineinfile:
+            state: present
+            dest: /etc/ssh/sshd_config
+            regexp: '^DenyUsers'
+            line: "DenyUsers {{ sshd_access['denyusers'] }}"
+        notify:
+            - restart sshd
+        when:
+            - "sshd_access['denyusers']|default('')"
+
+      - name: "5.2.18 -> Ensure SSH access is limited (denygroups) [4/4]"
+        lineinfile:
+            state: present
+            dest: /etc/ssh/sshd_config
+            regexp: '^DenyGroups'
+            line: "DenyGroups {{ sshd_access['denygroups'] }}"
+        notify:
+            - restart sshd
+        when:
+            - "sshd_access['denygroups']|default('')"
+  tags:
+      - level1
+      - scored
+      - control_4.3
+      - sshd
+      - rule_5.2.18
+

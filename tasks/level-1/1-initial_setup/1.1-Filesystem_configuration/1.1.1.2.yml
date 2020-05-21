@@ -1,0 +1,18 @@
+---
+
+# 1.1.1.2 - Ensure mounting of freevxfs filesystems is disabled
+
+- name: "1.1.1.2 -> Ensure mounting of freevxfs filesystems is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install freevxfs"
+      line: "install freevxfs /bin/true"
+      state: present
+      create: true
+  tags:
+      - level1
+      - scored
+      - freevxfs
+      - filesystems
+      - control_5.1
+      - rule_1.1.1.2

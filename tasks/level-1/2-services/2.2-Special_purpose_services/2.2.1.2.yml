@@ -1,0 +1,47 @@
+---
+
+# 2.2.1.2 Ensure systemd-timesyncd is configured
+
+- name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [1/4]"
+  command: systemctl enable systemd-timesyncd.service
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - notscored
+      - rule_2.2.1.2
+
+- name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [2/4]"
+  lineinfile:
+      dest: "/etc/systemd/timesyncd.conf"
+      regexp: '{{ item.name }}'
+      line: '{{ item.value }}'
+      state: present
+  with_items:
+      - { name: '^(#)?NTP=0.ubuntu.pool.ntp.org 1.ubuntu.pool.ntp.org 2.ubuntu.pool.ntp.org', value: 'NTP=0.ubuntu.pool.ntp.org 1.ubuntu.pool.ntp.org 2.ubuntu.pool.ntp.org' }
+      - { name: '^(#)?FallbackNTP=ntp.ubuntu.com 3.ubuntu.pool.ntp.org', value: 'FallbackNTP=ntp.ubuntu.com 3.ubuntu.pool.ntp.org' }
+      - { name: '^(#)?RootDistanceMaxSec=1', value: 'RootDistanceMaxSec=1' }
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - notscored
+      - rule_2.2.1.2
+
+- name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [3/4]"
+  command: systemctl start systemd-timesyncd.service
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - notscored
+      - rule_2.2.1.2
+
+- name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [4/4]"
+  command: timedatectl set-ntp true 
+  tags:
+      - level1
+      - control_6.1
+      - chrony
+      - notscored
+      - rule_2.2.1.2

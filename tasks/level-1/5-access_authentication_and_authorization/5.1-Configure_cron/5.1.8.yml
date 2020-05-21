@@ -1,0 +1,47 @@
+---
+
+# 5.1.8  Ensure at/cron is restricted to authorized users
+
+- name: "5.1.8 ->  Ensure at/cron is restricted to authorized users"
+  block:
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [1/6]"
+        file:
+            dest: /etc/at.deny
+            state: absent
+      
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [2/6]"
+        file:
+            dest: /etc/cron.deny
+            state: absent
+
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [3/6]"
+        stat:
+            path: "/etc/cron.allow"
+        register: cron_allow
+
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [4/6]"
+        stat:
+            path: "/etc/at.allow"
+        register: at_allow
+
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [5/6]"
+        file:
+            dest: /etc/cron.allow
+            state: '{{ "file" if  cron_allow.stat.exists else "touch" }}'
+            owner: root
+            group: root
+            mode: 0600
+
+      - name: "5.1.8 ->  Ensure at/cron is restricted to authorized users [6/6]"
+        file:
+            dest: /etc/at.allow
+            state: '{{ "file" if  at_allow.stat.exists else "touch" }}'
+            owner: root
+            group: root
+            mode: 0600
+  tags:
+      - level1
+      - scored
+      - control_14.6
+      - cron
+      - rule_5.1.8

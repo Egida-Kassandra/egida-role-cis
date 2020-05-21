@@ -1,0 +1,16 @@
+---
+
+# 3.3.1 Ensure TCP Wrappers is installed
+
+- name: "3.3.1 -> Ensure TCP Wrappers is installed"
+  apt:
+      name: "tcpd"
+      state: present
+      install_recommends: false
+  tags:
+      - level1
+      - scored
+      - tcp
+      - wrappers
+      - control_9.4
+      - rule_3.3.1

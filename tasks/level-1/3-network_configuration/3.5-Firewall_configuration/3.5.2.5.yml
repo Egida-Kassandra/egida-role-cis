@@ -1,0 +1,12 @@
+---
+
+# 3.5.2.5  Ensure firewall rules exist for all open ports
+
+- name: "3.5.2.5 ->  Ensure firewall rules exist for all open ports"
+  command:  ufw allow in 22/tcp
+  tags:
+      - level1
+      - scored
+      - firewall
+      - control_9.4
+      - rule_3.5.2.5

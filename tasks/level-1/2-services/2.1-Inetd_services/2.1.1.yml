@@ -1,0 +1,14 @@
+---
+
+# 2.1.1  Ensure xinetd is not installed
+
+- name: "2.1.1 -> Ensure xinetd is not installed"
+  apt:
+    name: xinetd
+    state: absent
+  tags:
+      - level1
+      - control_9.2
+      - xinetd
+      - scored
+      - rule_2.1.1

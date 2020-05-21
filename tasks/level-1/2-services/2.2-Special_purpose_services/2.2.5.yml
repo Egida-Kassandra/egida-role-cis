@@ -1,0 +1,29 @@
+---
+
+# 2.2.5  Ensure DHCP Server is not enabled
+
+- name: 2.2.5 -> Check if Service Exists (1/2)
+  stat: 
+    path: /etc/init.d/isc-dhcp-server
+  register: service_status
+
+- name: 2.2.5 -> Check if Service Exists (2/2)
+  stat: 
+    path: /etc/init.d/isc-dhcp-server6
+  register: service_status2
+
+
+- name: "2.2.5 -> Ensure DHCP Server is not enabled"
+  systemd:
+    name: '{{ item }}'
+    enabled: no
+  with_items:
+      - 'isc-dhcp-server'
+      - 'isc-dhcp-server6'
+  when: service_status.stat.exists and service_status2.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - dhcp
+      - scored
+      - rule_2.2.5

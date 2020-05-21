@@ -1,0 +1,15 @@
+---
+
+# 5.4.1.2 Ensure minimum days between password changes is configured
+
+- name: "5.4.1.2 -> Ensure minimum days between password changes is configured"
+  lineinfile:
+      state: present
+      dest: /etc/login.defs
+      regexp: '^PASS_MIN_DAYS'
+      line: "PASS_MIN_DAYS {{ password['min_days'] }}"
+  tags:
+      - level1
+      - scored
+      - control_4.4
+      - rule_5.4.1.2

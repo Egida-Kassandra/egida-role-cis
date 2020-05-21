@@ -1,0 +1,24 @@
+---
+
+# 3.2.7 Ensure Reverse Path Filtering is enabled
+
+- name: "3.2.7 -> Ensure Reverse Path Filtering is enabled"
+  sysctl:
+      name: '{{ item.name }}'
+      value: '{{ item.value }}'
+      sysctl_set: true
+      state: present
+      reload: true
+      ignoreerrors: true
+  with_items:
+      - { name: net.ipv4.conf.all.rp_filter, value: 1 }
+      - { name: net.ipv4.conf.default.rp_filter, value: 1 }
+  notify:
+      - sysctl flush ipv4 route table
+  tags:
+      - level1
+      - scored
+      - reverse_path
+      - sysctl
+      - control_5.1
+      - rule_3.2.7

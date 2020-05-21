@@ -1,0 +1,17 @@
+---
+
+# 1.8.1.5 Ensure permissions on /etc/issue are configured
+
+- name: "1.8.1.5 -> Ensure permissions on /etc/issue are configured"
+  file:
+      dest: /etc/issue
+      state: file
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - perms
+      - control_5.1
+      - rule_1.8.1.5

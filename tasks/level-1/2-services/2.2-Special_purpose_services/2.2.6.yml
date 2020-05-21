@@ -1,0 +1,21 @@
+---
+
+# 2.2.6  Ensure LDAP server is not enabled
+
+- name: 2.2.6 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/slapd
+  register: service_status
+
+
+- name: "2.2.6 -> Ensure LDAP server is not enabled"
+  systemd:
+    name: slapd
+    enabled: no
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - ldap
+      - scored
+      - rule_2.2.6

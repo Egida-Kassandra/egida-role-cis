@@ -1,0 +1,14 @@
+---
+
+# 2.3.2  Ensure NIS Client is not installed
+
+- name: "2.3.2 -> Ensure NIS Client is not installed"
+  apt:
+    name: rsh-client
+    state: absent
+  tags:
+      - level1
+      - control_4.5
+      - rsh-client
+      - scored
+      - rule_2.3.2

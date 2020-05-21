@@ -1,0 +1,17 @@
+---
+
+# 1.8.1.6 Ensure permissions on /etc/issue.net are configured
+
+- name: "1.8.1.6 -> Ensure permissions on /etc/issue.net are configured"
+  file:
+      dest: /etc/issue.net
+      state: file
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - notscored
+      - perms
+      - control_5.1
+      - rule_1.8.1.6

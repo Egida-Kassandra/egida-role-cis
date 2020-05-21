@@ -1,0 +1,15 @@
+---
+
+# 6.1.6 Ensure permissions on /etc/passwd- are configured
+
+- name: "6.1.6-> Ensure permissions on /etc/passwd- are configured"
+  file:
+      dest: /etc/passwd-
+      owner: root
+      group: root
+      mode: 0644
+  tags:
+      - level1
+      - scored
+      - control_16.4
+      - rule_6.1.6

@@ -1,0 +1,20 @@
+---
+
+# 4.1.10 Ensure unsuccessful unauthorized file access attempts are collected
+
+- name: "4.1.10 -> Ensure unsuccessful unauthorized file access attempts are collected"
+  template:
+      src: etc/audit/audit.rules.j2
+      dest: /etc/audit/rules.d/audit.rules
+      owner: root
+      group: root
+      mode: 0600
+  notify:
+      - load audit rules
+      - restart auditd
+  tags:
+      - level2
+      - scored
+      - control_5.5
+      - auditd
+      - rule_4.1.10

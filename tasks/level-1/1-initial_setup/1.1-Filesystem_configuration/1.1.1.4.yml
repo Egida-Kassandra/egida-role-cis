@@ -1,0 +1,18 @@
+---
+
+# 1.1.1.4 Ensure mounting of hfs filesystems is disabled
+
+- name: "1.1.1.4 -> Ensure mounting of hfs filesystems is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install hfs(\\s|$)"
+      line: "install hfs /bin/true"
+      state: present
+      create: true
+  tags:
+      - level1
+      - scored
+      - hfs
+      - filesystems
+      - control_5.1
+      - rule_1.1.1.4

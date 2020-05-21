@@ -1,0 +1,18 @@
+---
+
+# 1.6.2 Ensure address space layout randomization (ASLR) is enabled
+
+- name: "1.6.2 -> Ensure address space layout randomization (ASLR) is enabled"
+  sysctl:
+      name: kernel.randomize_va_space
+      value: "2"
+      state: present
+      reload: true
+      sysctl_set: true
+      ignoreerrors: true
+  tags:
+      - level1
+      - scored
+      - aslr
+      - sysctl
+      - rule_1.6.2

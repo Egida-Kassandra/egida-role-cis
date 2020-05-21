@@ -1,0 +1,16 @@
+---
+
+# 3.4.1 Ensure DCCP is disabled
+
+- name: "3.4.1 -> Ensure DCCP is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install dccp(\\s|$)"
+      line: "install dccp /bin/true"
+      create: true
+  tags:
+      - level1
+      - scored
+      - dccp
+      - control_9.2
+      - rule_3.4.1

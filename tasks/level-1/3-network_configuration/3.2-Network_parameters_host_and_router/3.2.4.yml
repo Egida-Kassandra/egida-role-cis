@@ -1,0 +1,24 @@
+---
+
+# 3.2.4 Ensure suspicious packets are logged
+
+- name: "3.2.4 -> Ensure suspicious packets are logged"
+  sysctl:
+      name: '{{ item.name }}'
+      value: '{{ item.value }}'
+      sysctl_set: true
+      state: present
+      reload: true
+      ignoreerrors: true
+  with_items:
+      - { name: net.ipv4.conf.all.log_martians, value: 1 }
+      - { name: net.ipv4.conf.default.log_martians, value: 1 }
+  notify:
+      - sysctl flush ipv4 route table
+  tags:
+      - level1
+      - scored
+      - sysctl
+      - control_6.2
+      - control_6.3
+      - rule_3.2.4

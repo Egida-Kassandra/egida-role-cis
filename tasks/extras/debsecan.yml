@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install debsecan
+
+- name: "EXTRAS - Install debsecan"
+  apt:
+    name: debsecan
+    state: present
+  tags:
+      - extras
+      - debsecan

@@ -1,0 +1,20 @@
+---
+
+# 2.2.16  Ensure rsync service is not enabled
+
+- name: 2.2.16 -> Check if Service Exists
+  stat: 
+    path: /etc/init.d/rsync
+  register: service_status
+
+- name: "2.2.16 -> Ensure rsync service is not enabled"
+  systemd:
+    name: rsync
+    enabled: no
+  when: service_status.stat.exists
+  tags:
+      - level1
+      - control_9.2
+      - rsync
+      - scored
+      - rule_2.2.16

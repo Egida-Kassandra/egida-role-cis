@@ -1,0 +1,18 @@
+---
+
+# 3.1.2 Ensure IP forwarding is disabled
+
+- name: "3.1.2 -> Ensure IP forwarding is disabled"
+  sysctl:
+      name: net.ipv4.ip_forward
+      value: "0"
+      state: present
+      reload: true
+      ignoreerrors: true
+  tags:
+      - level1
+      - scored
+      - ip_forward
+      - sysctl
+      - control_5.1
+      - rule_3.1.2

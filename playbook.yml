@@ -1,0 +1,9 @@
+---
+
+- name: Harden Server
+  hosts: localhost
+  connection: local
+  become: yes
+  
+  roles:
+    - Ubuntu-18.04-CIS-Hardering

@@ -1,0 +1,11 @@
+---
+
+# EXTRAS - Install libpam-tmpdir
+
+- name: "EXTRAS - Install libpam-tmpdir"
+  apt:
+    name: libpam-tmpdir
+    state: present
+  tags:
+      - extras
+      - libpam-tmpdir

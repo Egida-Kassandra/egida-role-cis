@@ -1,0 +1,18 @@
+---
+
+# 1.1.1.7 Ensure mounting of udf filesystems is disabled
+
+- name: "1.1.1.7 -> Ensure mounting of udf filesystems is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?install udf(\\s|$)"
+      line: "install udf /bin/true"
+      state: present
+      create: true
+  tags:
+      - level1
+      - scored
+      - udf
+      - filesystems
+      - control_5.1
+      - rule_1.1.1.7

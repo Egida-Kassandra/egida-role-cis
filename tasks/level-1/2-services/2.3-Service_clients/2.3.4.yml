@@ -1,0 +1,14 @@
+---
+
+# 2.3.4 Ensure telnet client is not installed
+
+- name: "2.3.4 -> Ensure telnet client is not installed"
+  apt:
+    name: telnet
+    state: absent
+  tags:
+      - level1
+      - control_4.5
+      - telnet
+      - scored
+      - rule_2.3.4

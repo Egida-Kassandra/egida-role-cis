@@ -1,0 +1,15 @@
+---
+
+# 4.1.1.2  Ensure auditd service is enabled
+
+- name: "4.1.1.2 ->  Ensure auditd service is enabled"
+  systemd:
+    name: auditd
+    enabled: yes
+  tags:
+      - level2
+      - scored
+      - control_6.2
+      - control_6.3
+      - auditd
+      - rule_4.1.1.2

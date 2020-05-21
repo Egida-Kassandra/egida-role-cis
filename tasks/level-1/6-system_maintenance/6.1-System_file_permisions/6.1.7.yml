@@ -1,0 +1,15 @@
+---
+
+# 6.1.7 Ensure permissions on /etc/shadow- are configured
+
+- name: "6.1.7-> Ensure permissions on /etc/shadow- are configured"
+  file:
+      dest: /etc/shadow-
+      owner: root
+      group: shadow
+      mode: 0640
+  tags:
+      - level1
+      - scored
+      - control_16.4
+      - rule_6.1.7

@@ -1,0 +1,52 @@
+---
+# tasks file for Ubuntu-18.04-CIS-Hardering
+
+- import_tasks: "setup.yml"
+  become: yes
+
+- import_tasks: "level-1.yml"
+  become: yes
+  when: run_all_level_1
+
+- import_tasks: "level-2.yml"
+  become: yes
+  when: run_all_level_2
+
+# Extras
+
+- import_tasks: "extras/nameservers.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/fail2ban.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/apt-listchanges.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/debian-goodies.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/debsecan.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/debsums.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/libpam-tmpdir.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/needrestart.yml"
+  become: yes
+  when: extras
+
+- import_tasks: "extras/clamav.yml"
+  become: yes
+  when: extras
+

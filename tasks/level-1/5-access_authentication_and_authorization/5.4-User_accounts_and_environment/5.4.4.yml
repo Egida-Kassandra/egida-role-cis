@@ -1,0 +1,34 @@
+---
+
+# 5.4.4 Ensure default user umask is 027 or more restrictive
+
+- name: "5.4.4 -> Ensure default user umask is 027 or more restrictive"
+  block:
+    - name: "5.4.4 -> Ensure default user umask is 027 or more restrictive [1/3]"
+      lineinfile:
+        state: present
+        dest: /etc/bash.bashrc
+        create: true
+        regexp: '^umask '
+        line: 'umask 027'
+
+    - name: "5.4.4 -> Ensure default user umask is 027 or more restrictive [2/3]"
+      lineinfile:
+        state: present
+        dest: /etc/profile
+        create: true
+        regexp: '^umask '
+        line: 'umask 027'
+
+    - name: "5.4.4 -> Ensure default user umask is 027 or more restrictive [3/3]"
+      lineinfile:
+        state: present
+        dest: /etc/profile.d/99-umask.sh
+        create: true
+        regexp: '^umask '
+        line: 'umask 027'
+  tags:
+      - level1
+      - control_14.6
+      - rule_5.4.4
+      - scored
