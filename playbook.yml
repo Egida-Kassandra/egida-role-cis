@@ -6,4 +6,4 @@
   become: yes
   
   roles:
-    - Ubuntu-18.04-CIS-Hardering
+    - egida-role-cis

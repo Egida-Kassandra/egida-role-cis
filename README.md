@@ -2,15 +2,32 @@
 
 [EGIDA](https://github.com/antonioalfa22/egida) Ansible CIS Benchmarks Role.
 
+## Introduction
+
+This role was developed and tested against Ubuntu Linux 16.04 LTS and 18.04 LTS.
+
+The CIS Benchmarks used for this repository can be found at [CIS Center for Intenet Security](https://www.cisecurity.org/cis-benchmarks/).
+
+## Example Playbook
+
+```yaml
+---
+
+- name: Harden Server
+  hosts: localhost
+  connection: local
+  become: yes
+  
+  roles:
+    - egida-role-cis
+```
+
 ## Lynis scores
 
-Initial Lynis score: 62%
+* Initial Lynis score: 62%
+* Lynis score with All + Extras: 83%
 
-> With All + Extras
-
-Lynis score: 83%
-
-## Exclusions
+## CIS Benchmarks Exclusions
 
 ### 1 Initial setup
 
