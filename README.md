@@ -1,5 +1,10 @@
 # egida-role-cis
 
+[![EGIDA VERSION](https://img.shields.io/badge/egida-v0.0.1-blue?style=for-the-badge&logo=ansible&color=ff69b4)](https://github.com/antonioalfa22/egida)
+[![GitHub license](https://img.shields.io/badge/license-Apache-blue?style=for-the-badge)](https://github.com/antonioalfa22/egida-role-cis/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/badge/release-v.0.0.1-yellowgreen?style=for-the-badge)](https://github.com/antonioalfa22/egida-role-cis/releases)
+
+
 [EGIDA](https://github.com/antonioalfa22/egida) Ansible CIS Benchmarks Role.
 
 ## Introduction
@@ -138,3 +143,10 @@ The CIS Benchmarks used for this repository can be found at [CIS Center for Inte
 #### 6.2 User Accounts and environment
 
 * All
+
+
+## Authors
+
+* [Antonio Payá González](https://antoniopg.tk)
+* [Alba Cotarelo Tuñón](https://antoniopg.tk)
+* [Jose Manuel Redondo Lopez](http://orcid.org/0000-0002-0939-0186)
