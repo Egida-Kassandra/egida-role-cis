@@ -10,7 +10,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/antonioalfa22/egida-role-cis">
-    <img src="img/logo.svg" alt="Logo" width="80" height="80">
+    <img src="img/logo.svg" alt="Logo" width="180" height="180">
   </a>
 
   <h3 align="center">egida-role-cis</h3>
