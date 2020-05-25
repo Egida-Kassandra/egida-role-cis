@@ -10,6 +10,7 @@
       - control_14.6
       - sshd
       - rule_5.2.3
+      - section_5.2
 
 - name: "5.2.3 -> Ensure permissions on SSH public host key files are configured (2/2)"
   command: find /etc/ssh -xdev -type f -name 'ssh_host_*_key.pub' -exec chown root:root {} \;
@@ -19,3 +20,4 @@
       - control_14.6
       - sshd
       - rule_5.2.3
+      - section_5.2

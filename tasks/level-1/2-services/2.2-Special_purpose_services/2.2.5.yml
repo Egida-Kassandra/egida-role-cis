@@ -6,11 +6,25 @@
   stat: 
     path: /etc/init.d/isc-dhcp-server
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - dhcp
+      - scored
+      - rule_2.2.5
+      - section_2.2
 
 - name: 2.2.5 -> Check if Service Exists (2/2)
   stat: 
     path: /etc/init.d/isc-dhcp-server6
   register: service_status2
+  tags:
+      - level1
+      - control_9.2
+      - dhcp
+      - scored
+      - rule_2.2.5
+      - section_2.2
 
 
 - name: "2.2.5 -> Ensure DHCP Server is not enabled"
@@ -27,3 +41,4 @@
       - dhcp
       - scored
       - rule_2.2.5
+      - section_2.2

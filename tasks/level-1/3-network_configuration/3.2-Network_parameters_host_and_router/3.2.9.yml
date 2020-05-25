@@ -22,3 +22,4 @@
       - sysctl
       - control_5.1
       - rule_3.2.9
+      - section_3.2

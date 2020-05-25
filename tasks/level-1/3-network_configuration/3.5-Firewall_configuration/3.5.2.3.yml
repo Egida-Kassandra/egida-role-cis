@@ -10,6 +10,7 @@
       - firewall
       - control_9.4
       - rule_3.5.2.3
+      - section_3.5
 
 - name: "3.5.2.3 ->  Ensure loopback traffic is configured [2/3]"
   command: ufw deny in from 127.0.0.0/8
@@ -19,6 +20,7 @@
       - firewall
       - control_9.4
       - rule_3.5.2.3
+      - section_3.5
 
 - name: "3.5.2.3 ->  Ensure loopback traffic is configured [3/3]"
   command: ufw deny in from ::1
@@ -28,3 +30,4 @@
       - firewall
       - control_9.4
       - rule_3.5.2.3
+      - section_3.5

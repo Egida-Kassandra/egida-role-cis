@@ -18,3 +18,4 @@
       - sysctl
       - control_5.1
       - rule_3.2.5
+      - section_3.2

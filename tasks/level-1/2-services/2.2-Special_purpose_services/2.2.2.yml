@@ -12,3 +12,4 @@
       - xserver-xorg
       - scored
       - rule_2.2.2
+      - section_2.2

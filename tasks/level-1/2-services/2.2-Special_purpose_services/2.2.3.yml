@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/avahi-daemon
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - avahi
+      - scored
+      - rule_2.2.3
+      - section_2.2
 
 - name: "2.2.3 -> Ensure Avahi Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - avahi
       - scored
       - rule_2.2.3
+      - section_2.2

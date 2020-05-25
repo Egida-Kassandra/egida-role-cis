@@ -11,6 +11,7 @@
       - scored
       - prelink
       - rule_1.6.3
+      - section_1.6
 
 - name: "1.6.3 -> Ensure prelink is disabled [2/2]"
   apt:
@@ -21,3 +22,4 @@
       - scored
       - prelink
       - rule_1.6.3
+      - section_1.6

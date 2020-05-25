@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/cups
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - cups
+      - scored
+      - rule_2.2.4
+      - section_2.2
 
 - name: "2.2.4 -> Ensure CUPS is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - cups
       - scored
       - rule_2.2.4
+      - section_2.2

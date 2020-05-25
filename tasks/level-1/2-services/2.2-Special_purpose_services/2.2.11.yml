@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/dovecot
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - email
+      - scored
+      - rule_2.2.11
+      - section_2.2
 
 - name: "2.2.11 -> Ensure email services are not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - email
       - scored
       - rule_2.2.11
+      - section_2.2

@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/snmpd
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - snmp
+      - scored
+      - rule_2.2.14
+      - section_2.2
 
 - name: "2.2.14 -> Ensure SNMP Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - snmp
       - scored
       - rule_2.2.14
+      - section_2.2

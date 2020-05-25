@@ -12,3 +12,4 @@
       - ldap-utils
       - scored
       - rule_2.3.5
+      - section_2.3

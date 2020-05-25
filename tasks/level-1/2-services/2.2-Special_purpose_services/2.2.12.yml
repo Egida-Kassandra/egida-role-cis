@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/smbd
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - samba
+      - scored
+      - rule_2.2.12
+      - section_2.2
 
 - name: "2.2.12 -> Ensure Samba is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - samba
       - scored
       - rule_2.2.12
+      - section_2.2

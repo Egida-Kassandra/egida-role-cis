@@ -16,3 +16,4 @@
       - aslr
       - sysctl
       - rule_1.6.2
+      - section_1.6

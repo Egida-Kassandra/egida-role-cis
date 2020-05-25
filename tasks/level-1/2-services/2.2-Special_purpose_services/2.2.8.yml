@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/bind9
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - dns
+      - scored
+      - rule_2.2.8
+      - section_2.2
 
 - name: "2.2.8 -> Ensure DNS Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - dns
       - scored
       - rule_2.2.8
+      - section_2.2

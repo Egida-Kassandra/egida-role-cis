@@ -15,6 +15,7 @@
       - aide
       - control_14.9
       - rule_1.4.1
+      - section_1.4
 
 - name: "1.4.1 -> Ensure AIDE is installed [2/4]"
   apt:
@@ -29,6 +30,7 @@
       - aide
       - control_14.9
       - rule_1.4.1
+      - section_1.4
 
 - name: "1.4.1 -> Ensure AIDE is installed (Stat AIDE DB) [3/4]"
   stat: path=/var/lib/aide/aide.db
@@ -39,6 +41,7 @@
       - aide
       - control_14.9
       - rule_1.4.1
+      - section_1.4
 
 - name: "1.4.1 -> Ensure AIDE is installed (Init AIDE) [4/4] | This may take a LONG time"
   command: /usr/sbin/aideinit
@@ -52,3 +55,4 @@
       - aide
       - control_14.9
       - rule_1.4.1
+      - section_1.1

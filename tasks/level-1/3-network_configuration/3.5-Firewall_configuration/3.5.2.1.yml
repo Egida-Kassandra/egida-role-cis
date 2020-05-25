@@ -10,6 +10,7 @@
       - firewall
       - control_9.4
       - rule_3.5.2.1
+      - section_3.5
 
 - name: "3.5.2.1 ->  Ensure ufw service is enabled (allow default ports)"
   command:  ufw allow proto tcp from any to any port "{{ item }}"
@@ -20,3 +21,4 @@
       - firewall
       - control_9.4
       - rule_3.5.2.1
+      - section_3.5

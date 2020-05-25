@@ -10,6 +10,7 @@
       - chrony
       - notscored
       - rule_2.2.1.2
+      - section_2.2
 
 - name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [2/4]"
   lineinfile:
@@ -27,6 +28,7 @@
       - chrony
       - notscored
       - rule_2.2.1.2
+      - section_2.2
 
 - name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [3/4]"
   command: systemctl start systemd-timesyncd.service
@@ -36,6 +38,7 @@
       - chrony
       - notscored
       - rule_2.2.1.2
+      - section_2.2
 
 - name: "2.2.1.2 -> Ensure systemd-timesyncd is configured [4/4]"
   command: timedatectl set-ntp true 
@@ -45,3 +48,4 @@
       - chrony
       - notscored
       - rule_2.2.1.2
+      - section_2.2

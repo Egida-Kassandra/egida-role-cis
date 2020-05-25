@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/slapd
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - ldap
+      - scored
+      - rule_2.2.6
+      - section_2.2
 
 
 - name: "2.2.6 -> Ensure LDAP server is not enabled"
@@ -19,3 +26,4 @@
       - ldap
       - scored
       - rule_2.2.6
+      - section_2.2

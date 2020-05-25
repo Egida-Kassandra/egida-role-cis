@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/rsync
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - rsync
+      - scored
+      - rule_2.2.16
+      - section_2.2
 
 - name: "2.2.16 -> Ensure rsync service is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - rsync
       - scored
       - rule_2.2.16
+      - section_2.2

@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/squid
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - proxy
+      - scored
+      - rule_2.2.13
+      - section_2.2
 
 - name: "2.2.13 -> Ensure HTTP Proxy Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - proxy
       - scored
       - rule_2.2.13
+      - section_2.2

@@ -6,11 +6,25 @@
   stat: 
     path: /etc/init.d/nfs-server
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - rpc
+      - scored
+      - rule_2.2.7
+      - section_2.2
 
 - name: 2.2.7 -> Check if Service Exists (2/2)
   stat: 
     path: /etc/init.d/rpcbind
   register: service_status2
+  tags:
+      - level1
+      - control_9.2
+      - rpc
+      - scored
+      - rule_2.2.7
+      - section_2.2
 
 - name: "2.2.7 -> Ensure NFS and RPC are not enabled"
   systemd:
@@ -26,3 +40,4 @@
       - rpc
       - scored
       - rule_2.2.7
+      - section_2.2

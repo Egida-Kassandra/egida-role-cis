@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/apache2
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - http
+      - scored
+      - rule_2.2.10
+      - section_2.2
 
 - name: "2.2.10 -> Ensure HTTP server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - http
       - scored
       - rule_2.2.10
+      - section_2.2

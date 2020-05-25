@@ -15,11 +15,19 @@
       - email
       - scored
       - rule_2.2.15
+      - section_2.2
 
 - name: 2.2.15 -> Check if Service Exists
   stat: 
     path: /etc/init.d/postfix
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - email
+      - scored
+      - rule_2.2.15
+      - section_2.2
 
 - name: "2.2.15 -> Ensure mail transfer agent is configured for local-only mode "
   command: systemctl restart postfix
@@ -30,3 +38,4 @@
       - email
       - scored
       - rule_2.2.15
+      - section_2.2

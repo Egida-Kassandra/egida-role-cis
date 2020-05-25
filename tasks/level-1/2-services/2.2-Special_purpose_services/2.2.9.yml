@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/vsftpd
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - ftp
+      - scored
+      - rule_2.2.9
+      - section_2.2
 
 - name: "2.2.9 -> Ensure FTP Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - ftp
       - scored
       - rule_2.2.9
+      - section_2.2

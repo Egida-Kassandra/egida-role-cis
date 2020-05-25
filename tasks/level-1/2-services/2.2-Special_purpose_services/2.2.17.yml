@@ -6,6 +6,13 @@
   stat: 
     path: /etc/init.d/nis
   register: service_status
+  tags:
+      - level1
+      - control_9.2
+      - nis
+      - scored
+      - rule_2.2.17
+      - section_2.2
 
 - name: "2.2.17 -> Ensure NIS Server is not enabled"
   systemd:
@@ -18,3 +25,4 @@
       - nis
       - scored
       - rule_2.2.17
+      - section_2.2

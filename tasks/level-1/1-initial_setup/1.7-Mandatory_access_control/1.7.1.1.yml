@@ -15,3 +15,4 @@
       - apparmor
       - control_14.6
       - rule_1.7.1.1
+      - section_1.7

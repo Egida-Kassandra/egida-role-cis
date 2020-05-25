@@ -12,3 +12,4 @@
       - openbsd-inetd
       - scored
       - rule_2.1.2
+      - section_2.1

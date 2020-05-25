@@ -16,6 +16,7 @@
       - core_dumps
       - control_8.3
       - rule_1.6.4
+      - section_1.6
 
 - name: "1.6.4 -> Ensure core dumps are restricted [2/2]"
   sysctl:
@@ -32,3 +33,4 @@
       - core_dumps
       - control_8.3
       - rule_1.6.4
+      - section_1.6
