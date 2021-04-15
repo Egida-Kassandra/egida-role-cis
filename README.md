@@ -60,7 +60,9 @@ Getting Started
 
 ### Installation
 
-1. Download the source from [here](https://github.com/egida-kassandra/egida-role-cis/releases).
+```
+ansible-galaxy install antonioalfa22.egida_role_cis
+```
 
 <!-- EXAMPLE PLAYBOOK -->
 ## Example Playbook
