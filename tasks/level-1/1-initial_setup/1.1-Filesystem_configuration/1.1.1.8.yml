@@ -1,18 +1,18 @@
 ---
 
-# 1.1.1.8 Ensure mounting of FAT filesystems is disabled
+# 1.1.1.8 Ensure mounting of squashfs filesystems is disabled
 
-- name: "1.1.1.8 -> Ensure mounting of FAT filesystems is disabled"
+- name: "1.1.1.8 -> Ensure mounting of squashfs filesystems is disabled"
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install vfat(\\s|$)"
-      line: "install vfat /bin/true"
+      regexp: "^(#)?install squashfs(\\s|$)"
+      line: "install squashfs /bin/true"
       state: present
       create: true
   tags:
       - level1
       - scored
-      - vfat
+      - squashfs
       - filesystems
       - control_5.1
       - rule_1.1.1.8

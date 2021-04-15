@@ -1,0 +1,27 @@
+---
+
+# 1.1.24 -> Disable USB Storage
+
+- name: "1.1.24 Disable USB Storage"
+  block:
+    - name: "1.1.24 Disable USB Storage (1/2)"
+      lineinfile:
+        dest: /etc/modprobe.d/CIS.conf
+        regexp: "^(#)?install usb-storage(\\s|$)"
+        line: "install usb-storage /bin/true"
+        state: present
+        create: true
+    - name: "1.1.24 Disable USB Storage (2/2)"
+      modprobe:
+        name: usb-storage
+        state: absent
+  tags:
+      - level1
+      - scored
+      - modprobe
+      - usb
+      - filesystems
+      - control_8.4
+      - control_8.5
+      - rule_1.1.24
+      - section_1.1

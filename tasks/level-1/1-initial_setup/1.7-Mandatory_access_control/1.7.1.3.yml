@@ -1,8 +1,8 @@
 ---
 
-# 1.7.1.3  Ensure AppArmor is installed
+# 1.7.1.3  Ensure all AppArmor Profiles are in enforce or complain mode
 
-- name: "1.7.1.3 ->  Ensure AppArmor is installed"
+- name: "1.7.1.3 ->  Ensure all AppArmor Profiles are in enforce or complain mode"
   command: aa-complain /etc/apparmor.d/*
   tags:
       - level1

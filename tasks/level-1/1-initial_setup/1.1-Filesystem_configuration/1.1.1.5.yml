@@ -3,16 +3,24 @@
 # 1.1.1.5 Ensure mounting of hfsplus filesystems is disabled
 
 - name: "1.1.1.5 -> Ensure mounting of hfsplus filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install hfsplus(\\s|$)"
-      line: "install hfsplus /bin/true"
-      state: present
-      create: true
+  block:
+    - name: "1.1.1.5 -> Ensure mounting of hfsplus filesystems is disabled (1/2)"
+      lineinfile:
+        dest: /etc/modprobe.d/CIS.conf
+        regexp: "^(#)?install hfsplus(\\s|$)"
+        line: "install hfsplus /bin/true"
+        state: present
+        create: true
+    - name: "1.1.1.5 -> Ensure mounting of hfsplus filesystems is disabled (2/2) | modprobe"
+      modprobe:
+        name: hfsplus
+        state: absent
+  when: disable_hfsplus
   tags:
       - level1
       - scored
       - hfsplus
+      - modprobe
       - filesystems
       - control_5.1
       - rule_1.1.1.5

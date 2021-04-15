@@ -1,9 +1,9 @@
 # egida-role-cis
 
 <!-- PROJECT SHIELDS -->
-[![EGIDA VERSION](https://img.shields.io/badge/egida-v0.0.1-blue?style=for-the-badge&logo=ansible&color=ff69b4)](https://github.com/egida-kassandra/egida)
+[![EGIDA VERSION](https://img.shields.io/badge/egida-v2.0.0-blue?style=for-the-badge&logo=ansible&color=ff69b4)](https://github.com/egida-kassandra/egida)
 [![GitHub license](https://img.shields.io/badge/license-Apache-blue?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-cis/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/badge/release-v.0.0.1-yellowgreen?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-cis/releases)
+[![GitHub release](https://img.shields.io/badge/release-v.2.0.0-yellowgreen?style=for-the-badge)](https://github.com/egida-kassandra/egida-role-cis/releases)
 
 <!-- PROJECT LOGO -->
 
@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-This role was developed and tested against Ubuntu Linux 16.04 LTS and 18.04 LTS.
+This role was developed and tested against Ubuntu Linux 20.04 LTS.
 
 The CIS Benchmarks used for this repository can be found at [CIS Center for Intenet Security](https://www.cisecurity.org/cis-benchmarks/).
 

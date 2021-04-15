@@ -3,9 +3,17 @@
 # 1.5.3  Ensure authentication required for single user mode
 
 - name: "1.5.3 ->  Ensure authentication required for single user mode"
-  user: 
-    name: root
-    password: "{{ root_pass | password_hash('sha512') }}"
+  block:
+    - name: 1.5.3 -> Ensure authentication required for single user mode - check if a root password already exists
+      shell: /bin/grep -e "^root:[\*]:" /etc/shadow | /usr/bin/awk 'END {if (NR != 0) print "continue" ; else print "stop"}'
+      register: result
+      ignore_errors: true
+
+    - name: 1.5.3 -> Ensure authentication required for single user mode - create a root password
+      # bash must be used or mysterious errors are thrown
+      shell: /bin/bash -c "echo -e '{{ root_password }}\n{{ root_password }}' | passwd root"
+      when: result.stdout == "continue"
+  when: set_root_password and root_password
   tags:
       - level1
       - scored

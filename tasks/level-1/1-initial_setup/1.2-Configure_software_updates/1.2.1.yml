@@ -3,8 +3,11 @@
 # 1.2.1 Ensure package manager repositories are configured
 
 - name: "1.2.1 -> Ensure package manager repositories are configured"
-  command: /bin/true
-  changed_when: false
+  debug:
+    msg: |
+      EGIDA msg:
+      Run the following command and verify package repositories are configured correctly
+      > apt-cache policy
   tags:
       - level1
       - notscored

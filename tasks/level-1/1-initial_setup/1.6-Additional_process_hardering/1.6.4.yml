@@ -2,30 +2,46 @@
 
 # 1.6.4 Ensure core dumps are restricted
 
-- name: "1.6.4 -> Ensure core dumps are restricted [1/2]"
-  lineinfile:
-      state: present
-      dest: /etc/security/limits.conf
-      regexp: '^#?\\*.*core'
-      line: '* hard core 0'
-      insertbefore: '^# End of file'
-  tags:
-      - level1
-      - scored
-      - limits
-      - core_dumps
-      - control_8.3
-      - rule_1.6.4
-      - section_1.6
-
-- name: "1.6.4 -> Ensure core dumps are restricted [2/2]"
-  sysctl:
-      name: fs.suid_dumpable
-      value: "0"
-      state: present
-      reload: true
-      sysctl_set: true
-      ignoreerrors: true
+- name: "1.6.4 -> Ensure core dumps are restricted"
+  block:
+    - name: "1.6.4 -> Ensure core dumps are restricted | sysctl"
+      sysctl:
+        name: fs.suid_dumpable
+        value: "0"
+        state: present
+        reload: true
+        sysctl_set: true
+        ignoreerrors: true
+    - name: "1.6.4 -> Ensure core dumps are restricted | limits.conf"
+      lineinfile:
+        dest: /etc/security/limits.conf
+        line: "*                hard    core            0"
+        regexp: '(^#)?\*\s+hard\s+core\s+[0-9]+'
+        state: present
+        create: true
+        insertbefore: "# End of file"
+    - name: "1.6.4 -> Ensure core dumps are restricted | apt"
+      apt:
+        name: systemd-coredump
+        state: present
+    - name: "1.6.4 -> Ensure core dumps are restricted | coredump.conf"
+      lineinfile:
+        dest: /etc/systemd/coredump.conf
+        line: "Storage=none"
+        regexp: '(^#)?\s*Storage\s*='
+        state: present
+        create: true
+        insertbefore: "# End of file"
+    - name: "1.6.4 -> Ensure core dumps are restricted | coredump.conf"
+      lineinfile:
+        dest: /etc/systemd/coredump.conf
+        line: "ProcessSizeMax=0"
+        regexp: '(^#)?\s*ProcessSizeMax\s*='
+        state: present
+        create: true
+        insertbefore: "# End of file"
+    - name: "1.6.4 -> Ensure core dumps are restricted | reload"
+      shell: systemctl daemon-reload
   tags:
       - level1
       - scored

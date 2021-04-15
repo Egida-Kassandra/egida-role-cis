@@ -1,0 +1,22 @@
+---
+
+# 1.1.6, 1.1.7, 1.1.8, 1.1.9 Ensure /dev/shm is configured
+
+- name: "1.1.6, 1.1.7, 1.1.8, 1.1.9 -> Ensure /dev/shm is configured"
+  mount:
+    name: /dev/shm
+    src: tmpfs
+    state: mounted
+    fstype: tmpfs
+    opts: "defaults,nodev,nosuid,noexec"
+  tags:
+      - level1
+      - scored
+      - control_5.1
+      - rule_1.1.6
+      - rule_1.1.7
+      - rule_1.1.8
+      - rule_1.1.9
+      - section_1.1
+      - shm
+      - mount

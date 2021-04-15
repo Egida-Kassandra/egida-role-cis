@@ -2,17 +2,25 @@
 
 # 1.1.1.7 Ensure mounting of udf filesystems is disabled
 
-- name: "1.1.1.7 -> Ensure mounting of udf filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install udf(\\s|$)"
-      line: "install udf /bin/true"
-      state: present
-      create: true
+- name: "1.1.1.7 -> Ensure mounting of FAT filesystems is limited"
+  block:
+    - name: "1.1.1.7 -> Ensure mounting of FAT filesystems is limited (1/2)"
+      lineinfile:
+        dest: /etc/modprobe.d/CIS.conf
+        regexp: "^(#)?install vfat(\\s|$)"
+        line: "install vfat /bin/true"
+        state: present
+        create: true
+    - name: "1.1.1.7 -> Ensure mounting of FAT filesystems is limited (2/2) | modprobe"
+      modprobe:
+        name: vfat
+        state: absent
+  when: disable_fat
   tags:
       - level1
       - scored
-      - udf
+      - fat
+      - modprobe
       - filesystems
       - control_5.1
       - rule_1.1.1.7

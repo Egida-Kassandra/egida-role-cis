@@ -1,0 +1,19 @@
+---
+
+# 1.2.2 Ensure GPG keys are configured
+
+- name: "1.2.2 -> Ensure GPG keys are configured"
+  debug:
+    msg: |
+      EGIDA msg:
+      Verify GPG keys are configured correctly for your package manager:
+      > apt-key list
+  tags:
+      - level1
+      - notscored
+      - package
+      - repositories
+      - control_3.4
+      - control_3.5
+      - rule_1.2.2
+      - section_1.2

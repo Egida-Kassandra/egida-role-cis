@@ -1,0 +1,21 @@
+---
+
+# 1.1.10 Ensure separate partition exists for /var
+
+- name: "1.1.10 -> Ensure separate partition exists for /var"
+  debug:
+    msg: |-
+      EGIDA msg:
+      during setup step
+      For new installations, during installation create a custom partition setup and specify a
+      separate partition for /var .
+      For systems that were previously installed, create a new partition and configure
+      /etc/fstab as appropriate.
+  tags:
+      - level1
+      - scored
+      - var
+      - filesystems
+      - control_5.1
+      - rule_1.1.10
+      - section_1.1

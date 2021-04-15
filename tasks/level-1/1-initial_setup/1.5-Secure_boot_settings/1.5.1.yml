@@ -1,13 +1,47 @@
 ---
 
-# 1.5.1 - Ensure permissions on bootloader config are configured
+# 1.5.1 - Ensure bootloader password is set
 
-- name: "1.5.1 -> Ensure permissions on bootloader config are configured"
-  file:
-      path: "/boot/grub/grub.cfg"
-      owner: root
-      group: root
-      mode: 0400
+- name: "1.5.1 -> Ensure bootloader password is set"
+  block:
+    - name: 1.5.1 Ensure bootloader password is set - (1/4)
+      shell: /bin/grep -e "^[\s]*password" /boot/grub/grub.cfg | /usr/bin/awk '{print} END {if (NR == 0) print "continue" ; else print "stop"}'
+      register: result
+      ignore_errors: true
+
+    - name: 1.5.1 -> Ensure bootloader password is set - create bootloader password hash - (2/4)
+      # bash -c must be used in this strange way or mysterious errors are thrown
+      shell: /bin/bash -c "echo -e '{{ bootloader_credentials.password }}\n{{ bootloader_credentials.password }}' | grub-mkpasswd-pbkdf2" | /bin/grep 'hash of your password' | /usr/bin/awk '{print $7}'
+      register: password
+      when:
+        - result.stdout == "continue"
+        - bootloader_credentials.user
+        - bootloader_credentials.password
+
+    - name: 1.5.1 Ensure bootloader password is set - create custom grub configuration file - (3/4)
+      blockinfile:
+        dest: /etc/grub.d/99_custom
+        create: yes
+        mode: 0700
+        block: |
+          #!/bin/sh
+          cat <<EOF
+          set superusers='{{ bootloader_credentials.user }}'
+          password_pbkdf2 {{ bootloader_credentials.user }} {{ password.stdout }}
+          EOF
+        state: present
+      when:
+        - result.stdout == "continue"
+        - bootloader_credentials.user
+        - bootloader_credentials.password
+
+    - name: 1.5.1 Ensure bootloader password is set - update grub - (4/4)
+      shell: update-grub
+      when:
+        - result.stdout == "continue"
+        - bootloader_credentials.user
+        - bootloader_credentials.password
+  when: set_bootloader_credentials
   tags:
       - level1
       - scored

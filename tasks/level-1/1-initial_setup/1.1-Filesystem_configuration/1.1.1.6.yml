@@ -1,18 +1,26 @@
 ---
 
-# 1.1.1.6 Ensure mounting of squashfs filesystems is disabled
+# 1.1.1.6 Ensure mounting of udf filesystems is disabled (1/2)
 
-- name: "1.1.1.6 -> Ensure mounting of squashfs filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install squashfs(\\s|$)"
-      line: "install squashfs /bin/true"
-      state: present
-      create: true
+- name: "1.1.1.6 -> Ensure mounting of udf filesystems is disabled (1/2)"
+  block:
+    - name: "1.1.1.6 -> Ensure mounting of udf filesystems is disabled (1/2)"
+      lineinfile:
+        dest: /etc/modprobe.d/CIS.conf
+        regexp: "^(#)?install udf(\\s|$)"
+        line: "install udf /bin/true"
+        state: present
+        create: true
+    - name: "1.1.1.6 -> Ensure mounting of udf filesystems is disabled (2/2) | modprobe"
+      modprobe:
+        name: udf
+        state: absent
+  when: disable_udf
   tags:
       - level1
       - scored
-      - squashfs
+      - udf
+      - modprobe
       - filesystems
       - control_5.1
       - rule_1.1.1.6

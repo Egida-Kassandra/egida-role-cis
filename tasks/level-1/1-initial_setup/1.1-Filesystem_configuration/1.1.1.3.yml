@@ -3,16 +3,24 @@
 # 1.1.1.3 Ensure mounting of jffs2 filesystems is disabled
 
 - name: "1.1.1.3 -> Ensure mounting of jffs2 filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install jffs2(\\s|$)"
-      line: "install jffs2 /bin/true"
-      state: present
-      create: true
+  block:
+    - name: "1.1.1.3 -> Ensure mounting of jffs2 filesystems is disabled (1/2)"
+      lineinfile:
+        dest: /etc/modprobe.d/CIS.conf
+        regexp: "^(#)?install jffs2(\\s|$)"
+        line: "install jffs2 /bin/true"
+        state: present
+        create: true
+    - name: "1.1.1.3 -> Ensure mounting of jffs2 filesystems is disabled (2/2) | modprobe"
+      modprobe:
+        name: jffs2
+        state: absent
+  when: disable_jffs2
   tags:
       - level1
       - scored
       - jffs2
+      - modprobe
       - filesystems
       - control_5.1
       - rule_1.1.1.3

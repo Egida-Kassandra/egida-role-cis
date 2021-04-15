@@ -1,50 +1,13 @@
 ---
 
-# 1.5.2 - Ensure bootloader password is set
+# 1.5.2 -Ensure permissions on bootloader config are configured
 
-- name: "1.5.2 -> Ensure bootloader password is set [1/4]"
-  shell: "set -o pipefail;
-        echo -e \"{{ grub_pass }}\n{{ grub_pass }}\" | grub-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'"
-  register: grub_pass_out
-  args:
-    executable: /bin/bash
-  tags:
-    - level1
-    - scored
-    - grub
-    - control_5.1
-    - rule_1.5.2
-    - section_1.5
-
-- name: "1.5.2 -> Ensure bootloader password is set [2/4]"
-  lineinfile:
-      dest: /etc/grub.d/40_custom
-      line: 'set superusers="root"'
-      state: present
-      create: true
-  tags:
-    - level1
-    - scored
-    - grub
-    - control_5.1
-    - rule_1.5.2
-    - section_1.5
-
-- name: "1.5.2 -> Ensure bootloader password is set [3/4]"
-  lineinfile:
-      dest: /etc/grub.d/40_custom
-      line: 'password_pbkdf2 root {{ grub_pass_out.stdout }}'
-      state: present
-  tags:
-    - level1
-    - scored
-    - grub
-    - control_5.1
-    - rule_1.5.2
-    - section_1.5
-
-- name: "1.5.2 -> Ensure bootloader password is set [4/4]"
-  shell: update-grub
+- name: "1.5.2 -> Ensure permissions on bootloader config are configured"
+  file:
+      path: "/boot/grub/grub.cfg"
+      owner: root
+      group: root
+      mode: "og-rwx"
   tags:
     - level1
     - scored

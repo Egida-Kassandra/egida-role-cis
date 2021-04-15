@@ -3,6 +3,11 @@ galaxy_info:
   description: Ubuntu 18.04 LTS CIS Benchmarks
   company: Universidad de Oviedo
 
+  platforms:
+    - name: ubuntu
+      versions:
+        - focal
+        - bionic
 
   license: MIT
 
