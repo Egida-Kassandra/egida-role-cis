@@ -90,11 +90,9 @@ pwquality:
 
 # 5.4.1.1 Password
 
-password:
-  max_days: 365
-  min_days: 7
-  warn_age: 7
-  inactive: 30
+pass_expire_in_days: 300
+pass_warn_age: 7
+pass_min_days: 1
 
 
 # ======== EXTRAS ===================

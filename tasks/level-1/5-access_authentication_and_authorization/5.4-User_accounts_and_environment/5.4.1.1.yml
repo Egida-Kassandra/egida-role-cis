@@ -4,10 +4,10 @@
 
 - name: "5.4.1.1 ->  Ensure password expiration is 365 days or less"
   lineinfile:
-      state: present
-      dest: /etc/login.defs
-      regexp: '^PASS_MAX_DAYS'
-      line: "PASS_MAX_DAYS {{ password['max_days'] }}"
+    state: present
+    dest: /etc/login.defs
+    regexp: "^PASS_MAX_DAYS"
+    line: "PASS_MAX_DAYS {{ pass_expire_in_days }}"
   tags:
       - level1
       - scored
