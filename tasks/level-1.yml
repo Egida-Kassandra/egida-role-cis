@@ -69,15 +69,15 @@
 # ======================= 1.3 Configure sudo =================================
 
 # 1.3.1
-- include: "tasks/level-1/1-initial_setup/1.2-Configure_sudo/1.3.1.yml"
+- include: "tasks/level-1/1-initial_setup/1.3-Configure_sudo/1.3.1.yml"
   when: "'1.3.1' in cis_level_1_exclusions"
 
 # 1.3.2
-- include: "tasks/level-1/1-initial_setup/1.2-Configure_sudo/1.3.2.yml"
+- include: "tasks/level-1/1-initial_setup/1.3-Configure_sudo/1.3.2.yml"
   when: "'1.3.2' in cis_level_1_exclusions"
 
 # 1.3.3
-- include: "tasks/level-1/1-initial_setup/1.2-Configure_sudo/1.3.3.yml"
+- include: "tasks/level-1/1-initial_setup/1.3-Configure_sudo/1.3.3.yml"
   when: "'1.3.3' in cis_level_1_exclusions"
 
 # ======================= 1.4 Filesystem integrity checking ==============================
